@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360 Video Control Example</title>
+    <meta name="description" content="360 Video — A-Frame">
+    <script src="../build.js"></script>
+
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="video-play-image" src="img/play.png">
+        <img id="video-pause-image" src="img/pause.png">
+
+        <video id="video_1" src="https://ucarecdn.com/bcece0a8-86ce-460e-856b-40dac4875f15/"></video>
+      </a-assets>
+
+      <a-camera position="0 0 5">
+          <a-cursor id="cursor" color="yellow"></a-cursor>
+      </a-camera>
+
+      <a-videosphere src="#video_1" rotation="0 180 0"></a-videosphere>
+
+      <a-entity video-controls="src:#video_1"></a-entity>
+
+    </a-scene>
+  </body>
+</html>

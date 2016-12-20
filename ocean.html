@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="stylesheets/style.css">
-    <script src="https://jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.1.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
     <script src="https://github.com/ngokevin/aframe-physics-components/blob/master/dist/aframe-physics-components.min.js"></script>
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
-    <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script>
-    <!-- <script src="javascripts/ocean.js"></script> -->
-
+    <!-- <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script> -->
+    <script src="assets/javascripts/aframe-video-controls.js"></script>
+    <script src="assets/javascripts/ocean.js"></script>
 </head>
 
 <body>
     <a-scene physics>
         <a-assets>
-            <video id="penguin-video" loop="false" src="assets/videos/emperor_penguins.mp4"></video>
+            <video id="penguin-video" controls="false" loop="false" src="assets/videos/emperor_penguins.mp4"></video>
             <img src="assets/images/nightsky.jpg" id="background">
             <img src="assets/images/aa_ocean.jpg" id="ocean">
             <img src="assets/images/moonskin.png" id="moon">
@@ -100,8 +100,8 @@
 
 
         <!-- OCEAN LAYERS -->
-            <a-plane width="161" depth="161" opacity="0" static-body></a-plane>
-            <!-- <a-ocean width="161" depth="161" density="110" opacity="0.85" position="0 0.2 0"></a-ocean> -->
+            <a-box width="161" depth="161" opacity="0.05" static-body position="0 -0.4 0"></a-box>
+            <a-ocean width="161" depth="161" density="110" opacity="0.85" position="0 0.2 0"></a-ocean>
             <a-ocean width="161" depth="161" density="11" opacity="1" position="0 -1 0"></a-ocean>
             <!-- <a-box src="#ocean" opacity="1" depth="61" width="61"></a-box> -->
 
