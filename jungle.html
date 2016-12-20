@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World! - A-Frame</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="Hello, World! - A-Frame">
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script>
+    <script src="main.js"></script>
+
+  </head>
+  <body>
+    <a-scene>
+      <!-- PRELOAD ASSETS -->
+      <a-assets>
+        <a-asset-item id="gorilla" src="gorilla.dae"></a-asset-item>
+        <a-asset-item id="elephant" src="elephant.dae"></a-asset-item>
+        <a-asset-item id="cheetah" src="cheetah.dae"></a-asset-item>
+        <a-asset-item id="tapir" src="tapir.dae"></a-asset-item>
+        <a-asset-item id="panda" src="panda.dae"></a-asset-item>
+        <a-asset-item id="grass" src="grass.dae"></a-asset-item>
+        <a-asset-item id="shrub" src="shrub.dae"></a-asset-item>
+        <a-asset-item id="tree" src="tree.dae"></a-asset-item>
+        <a-asset-item id="rock" src="rock.dae"></a-asset-item>
+        <a-asset-item id="rhino" src="rhino.dae"></a-asset-item>
+        <video id="penguin-sledding" src="videos/rhinovid.mp4">
+        <img src="rainforest.jpg" id="rainforest">
+      </a-assets>
+
+      <!-- CONTROLS -->
+      <a-entity camera="userHeight: 1.6" wasd-controls look-controls>
+        <a-entity cursor
+            position="0 0 -1"
+            raycaster="objects: .clickable"
+            scale="0.02 0.02 0.02"
+            geometry="primitive: ring"
+            material="color: aqua; shader: flat">
+        </a-entity>
+      </a-entity>
+
+      <!-- SURROUNDINGS -->
+      <a-sky src="#rainforest" rotation="0 -130 0"></a-sky>
+
+      <a-entity collada-model="#gorilla" scale="2 2 2" rotation="0 179.91 0" position="1.78 5.17 11.77"
+                  animation__rotate="property: rotation; dur: 500;
+                                               easing: linear; loop: true; to: 0 179.91 14.32; dir: alternate;"
+                 animation__yoyo="property: position; dir: alternate; dur: 500;
+                                  easing: easeInSine; loop: true; to: 1.78 5.5 11.77">
+      </a-entity>
+
+      <!-- ANIMALS -->
+      <a-entity animation__yoyo="property: position; dir: alternate; dur: 500;
+                                easing: easeInSine; loop: true; to: 0 0.1 0">
+          <a-entity alongpath="path:34.15,-3.28,-78.72 2.20,-3.63,-38.26 -16.80,-1.65,-21.29 -59.49,-1.28,-12.96 -125.86,-1.60,2.98; closed:false; loop:true; dur:30000; delay:4000; inspector:false;" collada-model="#elephant" rotation="-1.15 -60.73 0" position="34.15 -3.28 -78.72" scale="2 2 2" ></a-entity>
+      </a-entity>
+
+      <a-entity animation__yoyo="property: position; dir: alternate; dur: 500;
+                                easing: easeInSine; loop: true; to: 0 0.1 0">
+          <a-entity alongpath="path:30.15,-3.28,-70.72 4.20,-2.63,-30.26 -12.80,-0.65,-15.29 -50.49,-0.28,-18.96 -134.86,-1.60,5.98; closed:false; loop:true; dur:30000; delay:4000; inspector:false;" collada-model="#elephant" rotation="-1.15 -60.73 0" position="34.15 -3.28 -78.72" scale="1 1 1" ></a-entity>
+      </a-entity>
+
+      <a-entity collada-model="#cheetah" scale="2 2 2" rotation="0 0 0" position="-5 0 0" ></a-entity>
+      <a-entity collada-model="#tapir" rotation="0 0 0" position="-7 0 0" ></a-entity>
+      <a-entity collada-model="#rhino" rotation="0 0 0" position="19.52 3.94 -5.92" scale="3 3 3" ></a-entity>
+
+      <a-entity collada-model="#panda" scale="2 2 2" rotation="-63.03 158.14 -169.60" position="-13.55 4.92 -3.26"
+                animation__rotate="property: rotation; dur: 1000;
+                                             easing: linear; loop: true; to: -30.03 158.14 -169.60; dir: alternate;">
+      </a-entity>
+      <!-- TERRAIN -->
+      <a-entity collada-model="#tree" scale="2 2 2" position="-15 0 0" ></a-entity>
+      <a-entity collada-model="#tree" scale="2 2 2" position="4.16 0 12" ></a-entity>
+      <a-entity collada-model="#tree" scale="2 2 2" position="-3.51 0 -8.51" ></a-entity>
+      <a-entity collada-model="#tree" scale="2 2 2" position="-5.52 0 13.52" ></a-entity>
+      <a-entity collada-model="#tree" scale="2 2 2" position="0.62 0 -0.71" ></a-entity>
+      <a-entity collada-model="#tree" scale="2 2 2" position="8.83 0 4.95" ></a-entity>
+      <a-entity collada-model="#tree" scale="2 2 2" position="-10 0 9" ></a-entity>
+      <a-entity collada-model="#rock" scale="20 20 20" position="-2.34 0 27.19" ></a-entity>
+      <a-entity collada-model="#grass" scale="3 3 3" position="-113.52 -30.80 111.68" ></a-entity>
+      <!-- VIDEOS -->
+      <a-video src="#penguin-sledding" class="clickable" width="16" height="9" position="15.97 7.83 -17.94" rotation="0 -50.99 -0.57"></a-video>
+      <!-- VIDEO CONTROLS -->
+      <a-entity play="false" position="7.61 -0.77 -18.28" rotation="0 -49.27 0" scale="3 3 3">
+        <a-entity play="false" class="clickable" video-controls="src:#penguin-sledding; textColor:black" ></a-entity>
+      </a-entity>
+
+    </a-scene>
+
+  </body>
+</html>
