@@ -5,11 +5,11 @@
     <title>Hello, World! - A-Frame</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="description" content="Hello, World! - A-Frame">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
     <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.1.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
     <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script>
     <script src="assets/javascripts/jungle.js"></script>
@@ -25,8 +25,7 @@
         <a-asset-item id="tapir" src="assets/images/tapir.dae"></a-asset-item>
         <a-asset-item id="panda" src="assets/images/panda.dae"></a-asset-item>
         <a-asset-item id="grass" src="assets/images/grass.dae"></a-asset-item>
-        <a-asset-item id="shrub" src="assets/images/shrub.dae"></a-asset-item>
-        <a-asset-item id="tree" src="assets/images/tree.dae"></a-asset-item>
+        <!-- <a-asset-item id="tree" src="assets/images/tree.dae"></a-asset-item> -->
         <a-asset-item id="rock" src="assets/images/rock.dae"></a-asset-item>
         <a-asset-item id="rhino" src="assets/images/rhino.dae"></a-asset-item>
         <video id="penguin-sledding" src="assets/videos/rhinovid.mp4">
@@ -74,13 +73,13 @@
                                              easing: linear; loop: true; to: -30.03 158.14 -169.60; dir: alternate;">
       </a-entity>
       <!-- TERRAIN -->
-      <a-entity collada-model="#tree" scale="2 2 2" position="-15 0 0" ></a-entity>
+      <!-- <a-entity collada-model="#tree" scale="2 2 2" position="-15 0 0" ></a-entity>
       <a-entity collada-model="#tree" scale="2 2 2" position="4.16 0 12" ></a-entity>
       <a-entity collada-model="#tree" scale="2 2 2" position="-3.51 0 -8.51" ></a-entity>
       <a-entity collada-model="#tree" scale="2 2 2" position="-5.52 0 13.52" ></a-entity>
       <a-entity collada-model="#tree" scale="2 2 2" position="0.62 0 -0.71" ></a-entity>
       <a-entity collada-model="#tree" scale="2 2 2" position="8.83 0 4.95" ></a-entity>
-      <a-entity collada-model="#tree" scale="2 2 2" position="-10 0 9" ></a-entity>
+      <a-entity collada-model="#tree" scale="2 2 2" position="-10 0 9" ></a-entity> -->
       <a-entity collada-model="#rock" scale="20 20 20" position="-2.34 0 27.19" ></a-entity>
       <a-entity collada-model="#grass" scale="3 3 3" position="-113.52 -30.80 111.68" ></a-entity>
       <!-- VIDEOS -->
