@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <a-scene>
+    <a-scene physics>
         <a-assets>
             <video id="penguin-video" loop="false" src="assets/videos/emperor_penguins.mp4"></video>
             <img src="assets/images/nightsky.jpg" id="background">
@@ -29,16 +29,12 @@
             <a-asset-item id="iceberg" src="assets/images/iceberg.dae"></a-asset-item>
         </a-assets>
 
-            <a-entity camera="userHeight: 1.6" wasd-controls look-controls>
-                <a-entity cursor
-            position="0 0 -1"
-            raycaster="objects: .clickable"
-            scale="0.02 0.02 0.02"
-            geometry="primitive: ring"
-            material="color: black; shader: flat">
+        <a-entity camera="userHeight: 1.6" wasd-controls look-controls universal-controls kinematic-body jump-ability="maxJumps: 1.3; distance: 3;">
+        <a-entity cursor position="0 0 -1" raycaster="objects: .clickable" scale="0.02 0.02 0.02" geometry="primitive: ring" material="color: black; shader: flat"></a-entity>
         </a-entity>
-      </a-entity>
 
+
+        <!-- ORCAs -->
             <a-entity position="-10 -6.5 0">
                 <a-entity animation__rotat="property: rotation; dur: 12000;
                                             easing: linear; loop: true; to: 0 0 360"
@@ -104,11 +100,7 @@
 
 
         <!-- OCEAN LAYERS -->
-            <a-ocean width="161" depth="161" density="110" opacity="0.85"></a-ocean>
-            <a-ocean width="161" depth="161" density="11" opacity="0.88" position="0 -0.2 0"></a-ocean>
-            <a-ocean width="161" depth="161" density="11" opacity="0.91" position="0 -0.4 0"></a-ocean>
-            <a-ocean width="161" depth="161" density="11" opacity="0.94" position="0 -0.6 0"></a-ocean>
-            <a-ocean width="161" depth="161" density="11" opacity="0.97" position="0 -0.8 0"></a-ocean>
+            <a-ocean width="161" depth="161" density="110" opacity="0.85" static-body></a-ocean>
             <a-ocean width="161" depth="161" density="11" opacity="1" position="0 -1 0"></a-ocean>
             <!-- <a-box src="#ocean" opacity="1" depth="61" width="61"></a-box> -->
 
