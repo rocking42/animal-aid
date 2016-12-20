@@ -17,7 +17,7 @@
 
   </head>
   <body>
-    <a-scene physics>
+    <a-scene>
       <!-- PRELOAD ASSETS -->
       <a-assets>
         <a-asset-item id="gorilla" src="assets/images/gorilla.dae"></a-asset-item>
@@ -26,7 +26,7 @@
         <a-asset-item id="tapir" src="assets/images/tapir.dae"></a-asset-item>
         <a-asset-item id="panda" src="assets/images/panda.dae"></a-asset-item>
         <a-asset-item id="grass" src="assets/images/grass.dae"></a-asset-item>
-        <a-asset-item id="tree" src="assets/images/tree.dae"></a-asset-item>
+        <a-asset-item id="tree" src="assets/images/tree1.dae"></a-asset-item>
         <a-asset-item id="rock" src="assets/images/rock.dae"></a-asset-item>
         <a-asset-item id="rhino" src="assets/images/rhino.dae"></a-asset-item>
         <video id="penguin-sledding" src="assets/videos/rhinovid.mp4">
@@ -34,7 +34,6 @@
         <a-mixin id="checkpoint"></a-mixin>
         <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
       </a-assets>
-
       <!-- CONTROLS -->
       <a-entity camera="userHeight: 1.6" wasd-controls look-controls checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
         <a-entity cursor
@@ -45,59 +44,55 @@
             material="color: aqua; shader: flat">
         </a-entity>
       </a-entity>
-
       <!-- SURROUNDINGS -->
       <a-sky src="#rainforest" rotation="0 -130 0"></a-sky>
-
-      <a-entity collada-model="#gorilla" scale="2 2 2" rotation="0 179.91 0" position="1.78 5.17 11.77"
-                  animation__rotate="property: rotation; dur: 500;
-                                               easing: linear; loop: true; to: 0 179.91 14.32; dir: alternate;"
-                 animation__yoyo="property: position; dir: alternate; dur: 500;
-                                  easing: easeInSine; loop: true; to: 1.78 5.5 11.77">
-      </a-entity>
-
+      <!-- TERRAIN -->
+      <a-ocean width="161" depth="161" density="110" opacity="1" position="0 0.2 0" color="0099399.00"></a-ocean>
+      <a-entity collada-model="#tree" scale="1 1 1" position="-15 0 0" ></a-entity>
+      <a-entity collada-model="#tree" scale="1 1 1" position="13.63 0 15.64" ></a-entity>
+      <a-entity collada-model="#tree" scale="1 1 1" position="-5.05 0 -18.81" ></a-entity>
+      <a-entity collada-model="#tree" scale="1 1 1" position="-11.52 0 18.50" ></a-entity>
+      <a-entity collada-model="#tree" scale="1 1 1" position="19.18 0 -2.32" ></a-entity>
+      <a-entity collada-model="#tree" scale="1 1 1" position="8.83 0 4.95" ></a-entity>
+      <a-entity collada-model="#tree" scale="1 1 1" position="-16.72 0 10.21" ></a-entity>
+      <a-entity collada-model="#rock" scale="20 20 20" position="-2.34 0 27.19"></a-entity>
+      <!-- <a-entity collada-model="#grass" scale="3 3 3" position="-113.52 -30.80 111.68" static-body></a-entity> -->
       <!-- ANIMALS -->
       <a-entity animation__yoyo="property: position; dir: alternate; dur: 500;
                                 easing: easeInSine; loop: true; to: 0 0.1 0">
           <a-entity alongpath="path:34.15,-3.28,-78.72 2.20,-3.63,-38.26 -16.80,-1.65,-21.29 -59.49,-1.28,-12.96 -125.86,-1.60,2.98; closed:false; loop:true; dur:30000; delay:4000; inspector:false;" collada-model="#elephant" rotation="-1.15 -60.73 0" position="34.15 -3.28 -78.72" scale="2 2 2" ></a-entity>
       </a-entity>
 
-      <a-entity animation__yoyo="property: position; dir: alternate; dur: 500;
-                                easing: easeInSine; loop: true; to: 0 0.1 0">
-          <a-entity alongpath="path:30.15,-3.28,-70.72 4.20,-2.63,-30.26 -12.80,-0.65,-15.29 -50.49,-0.28,-18.96 -134.86,-1.60,5.98; closed:false; loop:true; dur:30000; delay:4000; inspector:false;" collada-model="#elephant" rotation="-1.15 -60.73 0" position="34.15 -3.28 -78.72" scale="1 1 1" ></a-entity>
+      <a-entity animation__yoyo="property: position; dir: alternate; dur: 500;easing: easeInSine; loop: true; to: 0 0.1 0">
+          <a-entity collada-model="#elephant" rotation="-1.15 -60.73 0"
+                    position="34.15 -3.28 -78.72" scale="1 1 1"
+                    alongpath="path:30.15,-3.28,-70.72 4.20,-2.63,-30.26 -12.80,-0.65,-15.29 -50.49,-0.28,-18.96 -134.86,-1.60,5.98; closed:false; loop:true; dur:30000; delay:4000; inspector:false;">
+          </a-entity>
       </a-entity>
-
+      <a-entity collada-model="#gorilla" scale="2 2 2" rotation="0 179.91 0" position="1.78 5.17 11.77"
+                  animation__rotate="property: rotation; dur: 500;
+                                               easing: linear; loop: true; to: 0 179.91 14.32; dir: alternate;"
+                 animation__yoyo="property: position; dir: alternate; dur: 500;
+                                  easing: easeInSine; loop: true; to: 1.78 5.5 11.77">
+      </a-entity>
       <a-entity collada-model="#cheetah" scale="2 2 2" rotation="0 0 0" position="-5 0 0" ></a-entity>
       <a-entity collada-model="#tapir" rotation="0 0 0" position="-7 0 0" ></a-entity>
-      <a-entity collada-model="#rhino" rotation="0 0 0" position="19.52 3.94 -5.92" scale="3 3 3" ></a-entity>
-
+      <a-entity collada-model="#rhino" rotation="0 -115.74 0" position="13.30 0.35 -10.47" scale="3 3 3" ></a-entity>
       <a-entity collada-model="#panda" scale="2 2 2" rotation="-63.03 158.14 -169.60" position="-13.55 4.92 -3.26"
                 animation__rotate="property: rotation; dur: 1000;
-                                             easing: linear; loop: true; to: -30.03 158.14 -169.60; dir: alternate;">
+                                   easing: linear; loop: true;
+                                   to: -30.03 158.14 -169.60; dir: alternate;">
       </a-entity>
-      <a-entity collada-model="#tree" scale="2 2 2" position="-15 0 0" ></a-entity>
-
-      <!-- TERRAIN -->
-
-      <!--
-      <a-entity collada-model="#tree" scale="2 2 2" position="4.16 0 12" ></a-entity>
-      <a-entity collada-model="#tree" scale="2 2 2" position="-3.51 0 -8.51" ></a-entity>
-      <a-entity collada-model="#tree" scale="2 2 2" position="-5.52 0 13.52" ></a-entity>
-      <a-entity collada-model="#tree" scale="2 2 2" position="0.62 0 -0.71" ></a-entity>
-      <a-entity collada-model="#tree" scale="2 2 2" position="8.83 0 4.95" ></a-entity>
-      <a-entity collada-model="#tree" scale="2 2 2" position="-10 0 9" ></a-entity> -->
-      <a-entity collada-model="#rock" scale="20 20 20" position="-2.34 0 27.19"></a-entity>
-      <a-entity collada-model="#grass" scale="3 3 3" position="-113.52 -30.80 111.68" static-body></a-entity>
       <!-- VIDEOS -->
       <a-video src="#penguin-sledding" class="clickable" width="16" height="9" position="15.97 7.83 -17.94" rotation="0 -50.99 -0.57"></a-video>
       <!-- VIDEO CONTROLS -->
-      <a-entity play="false" position="7.61 -0.77 -18.28" rotation="0 -49.27 0" scale="3 3 3">
+      <a-entity play="false" position="6.99 -2.45 -15.95" rotation="0 -49.27 0" scale="4 4 4">
         <a-entity play="false" class="clickable" video-controls="src:#penguin-sledding; textColor:black" ></a-entity>
       </a-entity>
-
-      <a-cylinder class="clickable" checkpoint radius="1" height="0.1" position="0 0 -5.2" color="#39BB82"></a-cylinder>
-      <a-cylinder class="clickable" checkpoint radius="1" height="0.1" position="16.39 3.30 -9.54" color="#39BB82"></a-cylinder>
-      <a-cylinder class="clickable" checkpoint radius="1" height="0.1" position="-3 0 0" color="#39BB82"></a-cylinder>
+      <!-- CHECKPOINTS -->
+      <a-cylinder class="clickable" checkpoint radius="1" height="1" position="0 0 -5.2" color="#39BB82"></a-cylinder>
+      <a-cylinder class="clickable" checkpoint radius="1" height="1" position="9.12 0 -14.46" color="#39BB82"></a-cylinder>
+      <a-cylinder class="clickable" checkpoint radius="1" height="1" position="-3 0 0" color="#39BB82"></a-cylinder>
 
     </a-scene>
 
