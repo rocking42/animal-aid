@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Hello, World! - A-Frame</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="Sky — A-Frame">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui"><meta name="mobile-web-app-capable" content="yes">
     <meta name="description" content="Hello, World! - A-Frame">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
@@ -12,7 +14,8 @@
     <script src="https://github.com/ngokevin/aframe-physics-components/blob/master/dist/aframe-physics-components.min.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
-    <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script>
+    <!-- <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script> -->
+    <script src="assets/javascripts/aframe-video-controls1.js" charset="utf-8"></script>
     <script src="assets/javascripts/jungle.js"></script>
 
   </head>
@@ -89,8 +92,8 @@
       <!-- VIDEOS -->
       <a-video src="#penguin-sledding" class="clickable" width="16" height="9" position="15.97 7.83 -17.94" rotation="0 -50.99 -0.57"></a-video>
       <!-- VIDEO CONTROLS -->
-      <a-entity play="false" position="6.99 -2.45 -15.95" rotation="0 -49.27 0" scale="4 4 4">
-        <a-entity play="false" class="clickable" video-controls="src:#penguin-sledding; textColor:black" ></a-entity>
+      <a-entity  position="8.77 -4.52 -1.74" rotation="0 -49.27 0" scale="4 4 4">
+        <a-entity id="vidId" play="false" class="clickable" video-controls="src:#penguin-sledding; textColor:black" ></a-entity>
       </a-entity>
       <!-- CHECKPOINTS -->
       <a-cylinder class="clickable" checkpoint radius="1" height="1" position="0 0 -5.2" color="#39BB82"></a-cylinder>
