@@ -1,0 +1,131 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://jquery.min.js"></script>
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
+    <script src="https://github.com/ngokevin/aframe-physics-components/blob/master/dist/aframe-physics-components.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script>
+    <script src="javascripts/main.js"></script>
+
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <video id="penguin-video" loop="false" src="assets/videos/emperor_penguins.mp4"></video>
+            <img src="assets/images/nightsky.jpg" id="background">
+            <img src="assets/images/aa_ocean.jpg" id="ocean">
+            <img src="assets/images/moonskin.png" id="moon">
+            <a-asset-item id="whale" src="assets/images/orca.dae"></a-asset-item>
+            <a-asset-item id="dolphin" src="assets/images/dolphin.dae"></a-asset-item>
+            <a-asset-item id="penguin" src="assets/images/penguin/model.dae"></a-asset-item>
+            <a-asset-item id="iceberg" src="assets/images/IceBerg_skb/model.dae"></a-asset-item>
+        </a-assets>
+
+            <a-entity camera="userHeight: 1.6" wasd-controls look-controls>
+                <a-entity cursor
+            position="0 0 -1"
+            raycaster="objects: .clickable"
+            scale="0.02 0.02 0.02"
+            geometry="primitive: ring"
+            material="color: black; shader: flat">
+        </a-entity>
+      </a-entity>
+
+            <a-entity position="-10 -6.5 0">
+                <a-entity animation__rotat="property: rotation; dur: 12000;
+                                            easing: linear; loop: true; to: 0 0 360"
+                          animation__yoyo="property: position; dir: alternate; dur: 12000;
+                                           easing: easeInSine; loop: true; to: 0 1 0">
+                    <a-entity collada-model="#whale" position="5 -3 -10">
+                      <!-- <a-animation attribute="rotation" dur="4000" from="10 0 -75" to="0 0 -135" direction="alternate" easing="ease" repeat="indefinite"></a-animation> -->
+                      <a-animation attribute="rotation" dur="12000" from="300 270 -75" to="310 180 -75" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+
+            <a-entity position="-10 1 0">
+                <a-entity collada-model="#whale" position="5 -3 -10">
+                      <a-animation attribute="rotation" dur="8000" from="10 0 -75" to="0 0 -135" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
+                      <a-animation attribute="position" dur="8000" from="5 -10 -10" to="5 -1 -10" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
+                </a-entity>
+            </a-entity>
+
+        <!-- ICEBERG AND PENGUINS -->
+                <a-entity collada-model="#iceberg" scale="0.5 0.4 0.3" position="5 -3.3 -10" rotation="0 115 0">
+                </a-entity>
+
+            <a-entity collada-model="#penguin" position="-7 4.6 -20">
+                <a-animation attribute="rotation" dur="170" from="0 180 -2" to="0 180 2" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
+            </a-entity>
+            <a-entity collada-model="#penguin" position="-5 4.19 -18">
+                <a-animation attribute="rotation" dur="200" from="0 0 -2" to="0 0 2" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
+            </a-entity>
+            <a-entity collada-model="#penguin" position="-6 3.80 -17">
+                <a-animation attribute="rotation" dur="170" from="0 0 -2" to="0 0 2" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
+            </a-entity>
+
+
+        <!-- DOLPHINS -->
+        <a-entity alongpath="path:0,-2,-100 0,0,100 ; closed:false; dur:30000; delay:3000; inspector:false; loop:true;">
+            <a-entity collada-model="#dolphin">
+                <a-animation attribute="rotation" dur="3200" from="-30 0 0" to="45 0 0" repeat="indefinite"></a-animation>
+                <a-animation attribute="position" begin="100" dur="1500" from="0 -3.2 0" to="0 1.6 0" direction="alternate" repeat="indefinite"></a-animation>
+            </a-entity>
+        </a-entity>
+
+        <a-entity alongpath="path:1.2,-2,-101 1.2,0,99 ; closed:false; dur:30000; delay:3000; inspector:false; loop:true;">
+            <a-entity collada-model="#dolphin">
+                <a-animation attribute="rotation" dur="3000" from="-30 0 0" to="45 0 0" repeat="indefinite"></a-animation>
+                <a-animation attribute="position" dur="1500" from="0 -3.4 0" to="0 1.7 0" direction="alternate" repeat="indefinite"></a-animation>
+            </a-entity>
+        </a-entity>
+
+        <a-entity alongpath="path:2.4,-2,-100.5 2.4,0,99.5 ; closed:false; dur:30000; delay:3800; inspector:false;  loop:true;">
+            <a-entity collada-model="#dolphin">
+                <a-animation attribute="rotation" dur="3300" from="-30 0 0" to="45 0 0" repeat="indefinite"></a-animation>
+                <a-animation attribute="position" begin="150" dur="1500" from="0 -3.6 0" to="0 1.7 0" direction="alternate" repeat="indefinite"></a-animation>
+            </a-entity>
+        </a-entity>
+
+        <a-entity alongpath="path:3.4,-2,-101.5 3.4,0,-14.5 ; closed:false; dur:15000; delay:3800; inspector:false;">
+            <a-entity collada-model="#dolphin">
+                <a-animation attribute="rotation" dur="3300" from="-30 0 0" to="45 0 0"  end="11000" repeat="indefinite"></a-animation>
+                    <a-animation attribute="position" begin="150" dur="1500" from="0 -3.6 0" to="0 1.7 0" direction="alternate" repeat="5"></a-animation>
+            </a-entity>
+        </a-entity>
+
+
+        <!-- OCEAN LAYERS -->
+            <a-ocean width="161" depth="161" density="110" opacity="0.85"></a-ocean>
+            <a-ocean width="161" depth="161" density="11" opacity="0.88" position="0 -0.2 0"></a-ocean>
+            <a-ocean width="161" depth="161" density="11" opacity="0.91" position="0 -0.4 0"></a-ocean>
+            <a-ocean width="161" depth="161" density="11" opacity="0.94" position="0 -0.6 0"></a-ocean>
+            <a-ocean width="161" depth="161" density="11" opacity="0.97" position="0 -0.8 0"></a-ocean>
+            <a-ocean width="161" depth="161" density="11" opacity="1" position="0 -1 0"></a-ocean>
+            <!-- <a-box src="#ocean" opacity="1" depth="61" width="61"></a-box> -->
+
+
+        <!-- MOON -->
+            <a-sphere src="#moon" radius="8" position="70 30 -10"></a-sphere>
+            <a-sky src="#background"></a-sky>
+
+        <!-- Video -->
+
+            <a-entity scale="3 3 1" position="-7.8 -2 -20"><a-entity video-controls="src:#penguin-video" class="clickable"></a-entity></a-entity>
+            <a-video scale="6 4 1" class="clickable" autoplay="false" src="#penguin-video" position="-13 4 -20"></a-video>
+        </a-scene>
+
+
+
+
+    </body>
+
+</html>
