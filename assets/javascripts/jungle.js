@@ -4,6 +4,14 @@ var isGorillaOn = true;
 var isPandaOn = true;
 var isElephantOn = true;
 
+var redirectHome = function(){
+    window.location.href = '/index.html';
+};
+
+var redirectOcean = function(){
+    window.location.href = '/ocean.html';
+};
+
 var freezeVideos = function(){
     var videos = document.querySelectorAll("video");
     for (var i = 0 ; i < videos.length ; i += 1) {
@@ -48,11 +56,34 @@ $(document).ready(function() {
     var playPanda = document.querySelector("#playPanda");
     var showElephant = document.querySelector("#showElephant");
     var playElephant = document.querySelector("#playElephant");
+    var cam = document.querySelector("#player");
 
     $(".rhino").on("click", playRhinoEvent );
     $(".gorilla").on("click", playGorillaEvent );
     $(".panda").on("click", playPandaEvent );
     $(".elephant").on("click", playElephantEvent );
+
+    $(".home").on("click", function() {
+        var floor = document.querySelector(".floor");
+        floor.attributes[5].value="0 5 0";
+        window.setTimeout(function() {
+          cam.removeAttribute("universal-controls");
+          cam.setAttribute('rotation', "73 -33 0");
+        }, 1000);
+        var goingHome = window.setTimeout(redirectHome, 4000);
+    });
+
+    $(".ocean").on("click", function() {
+        var floor = document.querySelector(".floor");
+        floor.attributes[5].value="0 5 0";
+        window.setTimeout(function() {
+          cam.removeAttribute("universal-controls");
+          cam.setAttribute('rotation', "73 -33 0");
+        }, 1000);
+        var goingHome = window.setTimeout(redirectOcean, 4000);
+    });
+
+
 
     var myInterval = window.setInterval(function() {
         if (scene.hasLoaded) {
