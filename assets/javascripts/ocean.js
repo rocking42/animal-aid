@@ -12,13 +12,23 @@ var freezeVideos = function(){
     }
 };
 
-//  THE NEXT 3 :
+var redirectHome = function(){
+    window.location.href = '/index.html';
+};
+
+//  THE NEXT 4 :
     // remove the video and controllers from site and reset the triggers
 
 var deleteDolphin = function () {
     showDolphin.removeFromParent();
     playDolphin.removeFromParent();
     isDolphinOn = false;
+};
+
+var deleteShark = function () {
+    showShark.removeFromParent();
+    playShark.removeFromParent();
+    isSharkOn = false;
 };
 
 var deleteOrca = function() {
@@ -46,6 +56,8 @@ $(document).ready(function() {
     var playDolphin = document.querySelector("#playDolphin");
     var showOrca = document.querySelector("#showOrca");
     var playOrca = document.querySelector("#playOrca");
+    var showShark = document.querySelector("#showShark");
+    var playShark = document.querySelector("#playShark");
 
     $(".dolphin").on("click", playDolphinEvent );
 
@@ -53,13 +65,20 @@ $(document).ready(function() {
 
     $(".orcaWhale").on("click", playOrcaEvent );
 
+    $(".shark").on("click", playSharkEvent );
 
+    $(".goHome").on("click", function() {
+        var floor = document.querySelector(".floor");
+        floor.attributes[5].value="0 5 0";
+        var goingHome = window.setTimeout(redirectHome, 5000);
+    });
     // after saving them into variable sand loading the assets, delete the nodes off of the scene
     var myInterval = window.setInterval(function() {
         if (scene.hasLoaded) {
             deletePenguin();
             deleteOrca();
             deleteDolphin();
+            deleteShark();
             clearInterval(myInterval);
         }
     }, 500);
@@ -79,6 +98,9 @@ var playPenguinEvent = function (event) {
         if (isDolphinOn === true) {
             deleteDolphin();
         }
+        if (isSharkOn === true) {
+            deleteShark();
+        }
         showPenguin.addToParent("scene");
         playPenguin.addToParent("scene");
         var $playPenguinImage = $("#playPenguin").find("a-image");
@@ -96,6 +118,9 @@ var playDolphinEvent = function (event) {
         }
         if (isOrcaOn === true) {
             deleteOrca();
+        }
+        if (isSharkOn === true) {
+            deleteShark();
         }
         showDolphin.addToParent("scene");
         playDolphin.addToParent("scene");
@@ -115,10 +140,34 @@ var playOrcaEvent = function (event) {
         if (isDolphinOn === true) {
             deleteDolphin();
         }
+        if (isSharkOn === true) {
+            deleteShark();
+        }
         showOrca.addToParent("scene");
         playOrca.addToParent("scene");
         var $playOrcaImage = $("#playOrca").find("a-image");
         $playOrcaImage.trigger("click");
         isOrcaOn = true;
+    }
+};
+
+var playSharkEvent = function (event) {
+    if (isSharkOn === true) {
+        deleteShark();
+    } else {
+        if (isPenguinOn === true) {
+            deletePenguin();
+        }
+        if (isDolphinOn === true) {
+            deleteDolphin();
+        }
+        if (isOrcaOn === true) {
+            deleteOrca();
+        }
+        showShark.addToParent("scene");
+        playShark.addToParent("scene");
+        var $playSharkImage = $("#playShark").find("a-image");
+        $playSharkImage.trigger("click");
+        isSharkOn = true;
     }
 };
