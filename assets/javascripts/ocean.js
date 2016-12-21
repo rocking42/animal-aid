@@ -14,11 +14,19 @@ var freezeVideos = function(){
 };
 
 var redirectHome = function(){
-    window.location.href = '/index.html';
+    if (window.location.href === '/ocean.html') {
+        window.location.href = '/index.html';
+    } else {
+        window.location.href = '/animal-aid/index.html';
+    }
 };
 
 var goJungling = function(){
-    window.location.href = '/jungle.html';
+    if (window.location.href === '/ocean.html') {
+        window.location.href = '/jungle.html';
+    } else {
+        window.location.href = '/animal-aid/jungle.html';
+    }
 };
 
 //  THE NEXT 4 :
