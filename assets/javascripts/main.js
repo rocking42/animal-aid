@@ -32,7 +32,7 @@ $(document).ready(function() {
 
     // Links to virtual worlds
     $(".dropBut").on("click", function(){
-        if (location.hostname === "localhost") {
+        if (window.location.host === "localhost") {
             window.location.href = '/ocean.html';
         } else {
             window.location.href = '/animal-aid/ocean.html';
@@ -40,7 +40,7 @@ $(document).ready(function() {
     });
 
     $(".treeBut").on("click", function(){
-        if (location.hostname === "localhost") {
+        if (window.location.hostname === "localhost") {
             window.location.href = '/jungle.html';
         } else {
             window.location.href = '/animal-aid/jungle.html';
