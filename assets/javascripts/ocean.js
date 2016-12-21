@@ -10,22 +10,22 @@ var freezeVideos = function(){
 
 var deleteVideos = function() {
     if (document.querySelector("#showPenguin")) {
-        showPenguin.removeFromParent();
+        document.querySelector("#showPenguin").removeFromParent();
     }
     if (document.querySelector("#playPenguin")) {
-        playPenguin.removeFromParent();
+        document.querySelector("#playPenguin").removeFromParent();
     }
     if (document.querySelector("#showDolphin")) {
-        playDolphin.removeFromParent();
+        document.querySelector("#showDolphin").removeFromParent();
     }
     if (document.querySelector("#playDolphin")) {
-        showDolphin.removeFromParent();
+        document.querySelector("#playDolphin").removeFromParent();
     }
     if(document.querySelector("#showOrca")) {
-        playOrca.removeFromParent();
+        document.querySelector("#showOrca").removeFromParent();
     }
     if(document.querySelector("#playOrca")) {
-        showOrca.removeFromParent();
+        document.querySelector("#playOrca").removeFromParent();
     }
 };
 
@@ -57,34 +57,36 @@ $(document).ready(function() {
 });
 
 var playPenguinEvent = function (event) {
-    freezeVideos();
-    if (trigger === false || triggerData != "penguin") {
-        showDolphin.addToParent("scene");
-        playDolphin.addToParent("scene");
-        var $playDolphinImage = $("#playDolphin").find("a-image");
-        $playDolphinImage.trigger("click");
+    deleteVideos();
+    if (trigger === true || triggerData === "penguin") {
+        showPenguin.removeFromParent();
+        playPenguin.removeFromParent();
+        trigger = false;
+    } else {
+
+        showPenguin.addToParent("scene");
+        playPenguin.addToParent("scene");
+        var $playPenguinImage = $("#playPenguin").find("a-image");
+        $playPenguinImage.trigger("click");
         trigger = true;
         triggerData = event.target.attributes[0].value;
-    } else {
-        showDolphin.removeFromParent();
-        playDolphin.removeFromParent();
-        trigger = false;
     }
 };
 
 var playDolphinEvent = function (event) {
-    freezeVideos();
-    if (trigger === false || triggerData != "dolphin") {
+    deleteVideos();
+    if (trigger === true || triggerData === "dolphin") {
+        showDolphin.removeFromParent();
+        playDolphin.removeFromParent();
+        trigger = false;
+    } else {
+
         showDolphin.addToParent("scene");
         playDolphin.addToParent("scene");
         var $playDolphinImage = $("#playDolphin").find("a-image");
         $playDolphinImage.trigger("click");
         trigger = true;
         triggerData = event.target.attributes[0].value;
-    } else {
-        showDolphin.removeFromParent();
-        playDolphin.removeFromParent();
-        trigger = false;
     }
 };
 
