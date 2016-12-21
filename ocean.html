@@ -23,12 +23,13 @@
         <a-assets>
             <video id="whale-video" controls="false" loop="false" src="assets/videos/orca.mp4"></video>
             <video id="penguin-video" controls="false" loop="false" src="assets/videos/emperor_penguins.mp4"></video>
+            <video id="shark-video" controls="false" loop="false" src="assets/videos/greatwhite.mp4"></video>
             <video id="dolphin-video" controls="false" loop="false" src="assets/videos/dolphins.mp4"></video>
             <img src="assets/images/nightsky.jpg" id="background">
             <img src="assets/images/aa_ocean.jpg" id="ocean">
             <img src="assets/images/moonskin.png" id="moon">
-            <a-asset-item id="turtle-obj" src="assets/turtle.obj"></a-asset-item>
-            <a-asset-item id="turtle-mtl" src="assets/turtle.mtl"></a-asset-item>
+            <a-asset-item id="shark-obj" src="assets/shark.obj"></a-asset-item>
+            <a-asset-item id="shark-mtl" src="assets/shark.mtl"></a-asset-item>
             <a-asset-item id="whale" src="assets/images/orca.dae"></a-asset-item>
             <a-asset-item id="dolphin" src="assets/images/dolphin.dae"></a-asset-item>
             <a-asset-item id="penguin" src="assets/images/penguin.dae"></a-asset-item>
@@ -42,26 +43,24 @@
 
 
 
-        <!-- TURTLE -->
+        <!-- SHARK -->
 
-        <!-- <a-entity position="-5 2 -8" scale="0.3 0.3 0.3" obj-model="obj: #turtle-obj; mtl: #turtle-mtl"></a-entity> -->
+        <a-entity position="-5 2 -8" scale="0.7 0.7 0.7" obj-model="obj: #shark-obj; mtl: #shark-mtl" rotation="-90 90 0" alongpath="path:
+        100,-1.5,-10 95,-1.5,10 90,-1.5,-8 80,-1.5,7 70,-1.5,-7 60,-1.5,-6 50,-1.5,6 40,-1.5,-10 30,-1.5,-10 20,-1.5,-10 10,-3,-14 5,2,-16 -5,5.5,-17 -15,2,-16 -20,-1.6,-15 -30,-1.6,-8 -40,-1.6,-10 -50,-1.6,-10 -60,-1.6,-10 -70,-1.6,-10 -80,-1.6,-10 -90,-1.6,-10 -100,0,-4; closed:false; dur:20000; delay:0.1; inspector:false; loop:true;"></a-entity>
 
 
         <!-- ORCAs -->
-        <a-entity position="-10 -6.5 0">
+        <a-entity position="-15 -6.5 0">
             <a-entity animation__rotat="property: rotation; dur: 12000;
                                             easing: linear; loop: true; to: 0 0 360" animation__yoyo="property: position; dir: alternate; dur: 12000;
                                            easing: easeInSine; loop: true; to: 0 1 0">
-                <a-box opacity="0" position="5 -3 -10" class="clickable orcaWhale" width="3" height="3" depth="3"></a-box>
-
                 <a-entity collada-model="#whale" position="5 -3 -10">
-                    <!-- <a-animation attribute="rotation" dur="4000" from="10 0 -75" to="0 0 -135" direction="alternate" easing="ease" repeat="indefinite"></a-animation> -->
                     <a-animation attribute="rotation" dur="12000" from="300 270 -75" to="310 180 -75" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
                 </a-entity>
             </a-entity>
         </a-entity>
 
-        <a-box opacity="0" position="-2 0 -8" class="clickable orcaWhale" width="1.6" height="1.6" depth="1.6"></a-box>
+        <!-- <a-box opacity="0" position="-2 0 -8" class="clickable orcaWhale" width="1.6" height="1.6" depth="1.6"></a-box> -->
         <a-entity position="-10 1 0">
             <a-entity collada-model="#whale" position="5 -3 -10">
                 <a-animation attribute="rotation" dur="8000" from="10 0 -75" to="0 0 -135" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
@@ -72,15 +71,15 @@
         <!-- ICEBERG AND PENGUINS -->
         <a-entity collada-model="#iceberg" scale="0.5 0.4 0.3" position="5 -3.3 -10" rotation="0 115 0">
         </a-entity>
-        <a-box opacity="0" position="-7 4.6 -20" class="clickable penguin" width="1" height="1" depth="1"></a-box>
+        <!-- <a-box opacity="0" position="-7 4.6 -20" class="clickable penguin" width="1" height="1" depth="1"></a-box> -->
         <a-entity collada-model="#penguin" position="-7 4.6 -20">
             <a-animation attribute="rotation" dur="170" from="0 180 -2" to="0 180 2" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
         </a-entity>
-        <a-box opacity="0" position="-5 4.19 -18" class="clickable penguin" width="1" height="1" depth="1"></a-box>
+        <!-- <a-box opacity="0" position="-5 4.19 -18" class="clickable penguin" width="1" height="1" depth="1"></a-box> -->
         <a-entity collada-model="#penguin" position="-5 4.19 -18">
             <a-animation attribute="rotation" dur="200" from="0 0 -2" to="0 0 2" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
         </a-entity>
-        <a-box opacity="0" position="-6 3.80 -17" class="clickable penguin" width="1" height="1" depth="1"></a-box>
+        <!-- <a-box opacity="0" position="-6 3.80 -17" class="clickable penguin" width="1" height="1" depth="1"></a-box> -->
         <a-entity collada-model="#penguin" position="-6 3.80 -17">
             <a-animation attribute="rotation" dur="170" from="0 0 -2" to="0 0 2" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
         </a-entity>
@@ -89,7 +88,7 @@
         <!-- DOLPHINS -->
         <a-entity alongpath="path:0,-2,-100 0,0,100 ; closed:false; dur:30000; delay:3000; inspector:false; loop:true;">
             <a-entity collada-model="#dolphin">
-                <a-box opacity="0" class="clickable dolphin" width="2" height="2" depth="2"></a-box>
+                <!-- <a-box opacity="0" class="clickable dolphin" width="2" height="2" depth="2"></a-box> -->
                 <a-animation attribute="rotation" dur="3200" from="-30 0 0" to="45 0 0" repeat="indefinite"></a-animation>
                 <a-animation attribute="position" begin="100" dur="1500" from="0 -3.2 0" to="0 1.6 0" direction="alternate" repeat="indefinite"></a-animation>
             </a-entity>
@@ -97,7 +96,7 @@
 
         <a-entity alongpath="path:1.2,-2,-101 1.2,0,99 ; closed:false; dur:30000; delay:3000; inspector:false; loop:true;">
             <a-entity collada-model="#dolphin">
-                <a-box opacity="0" class="clickable dolphin" width="2" height="2" depth="2"></a-box>
+                <!-- <a-box opacity="0" class="clickable dolphin" width="2" height="2" depth="2"></a-box> -->
                 <a-animation attribute="rotation" dur="3000" from="-30 0 0" to="45 0 0" repeat="indefinite"></a-animation>
                 <a-animation attribute="position" dur="1500" from="0 -3.4 0" to="0 1.7 0" direction="alternate" repeat="indefinite"></a-animation>
             </a-entity>
@@ -105,33 +104,24 @@
 
         <a-entity alongpath="path:2.4,-2,-100.5 2.4,0,99.5 ; closed:false; dur:30000; delay:3800; inspector:false;  loop:true;">
             <a-entity collada-model="#dolphin">
-                <a-box opacity="0" class="clickable dolphin" width="2" height="2" depth="2"></a-box>
+                <!-- <a-box opacity="0" class="clickable dolphin" width="2" height="2" depth="2"></a-box> -->
                 <a-animation attribute="rotation" dur="3300" from="-30 0 0" to="45 0 0" repeat="indefinite"></a-animation>
                 <a-animation attribute="position" begin="150" dur="1500" from="0 -3.6 0" to="0 1.7 0" direction="alternate" repeat="indefinite"></a-animation>
             </a-entity>
         </a-entity>
 
-        <!-- <a-entity alongpath="path:3.4,-2,-101.5 3.4,0,-14.5 ; closed:false; dur:15000; delay:3800; inspector:false;">
-            <a-entity collada-model="#dolphin">
-                <a-box opacity="0" class="clickable dolphin" width="2" height="2" depth="2"></a-box>
-                <a-animation attribute="rotation" dur="3300" from="-30 0 0" to="-10 0 0"  end="11000"></a-animation>
-                <a-animation attribute="position" begin="150" dur="1500" from="0 -1.6 0" to="0 1.7 0" direction="alternate" repeat="5"></a-animation>
-            </a-entity>
-        </a-entity> -->
-
         <a-entity position="2.4 0 -5.5">
             <a-entity collada-model="#dolphin">
-                <a-box opacity="0" class="clickable dolphin" width="3" height="3" depth="3"></a-box>
+                <!-- <a-box opacity="0" class="clickable dolphin" width="3" height="3" depth="3"></a-box> -->
                 <a-animation attribute="rotation" dur="800" from="-30 0 0" to="-50 0 0" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
                 <a-animation attribute="position" dur="800" from="3.4 -1 -14.5" to="3.4 -4 -14.5" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
             </a-entity>
         </a-entity>
 
         <!-- OCEAN LAYERS -->
-        <a-box width="161" depth="161" opacity="0.05" static-body position="0 -0.4 0" color="1049759.00"></a-box>
+        <a-box class="floor" width="161" depth="161" opacity="0.05" static-body position="0 -0.4 0" color="1049759.00"></a-box>
         <a-ocean width="161" depth="161" density="110" opacity="0.85" position="0 0.2 0" color="1049759.00"></a-ocean>
         <a-ocean width="161" depth="161" density="11" opacity="1" position="0 -1 0" color="1049759.00"></a-ocean>
-        <!-- <a-box src="#ocean" opacity="1" depth="61" width="61"></a-box> -->
 
 
         <!-- MOON -->
@@ -140,30 +130,35 @@
 
         <!-- Video -->
 
-        <!-- <a-entity scale="3 3 1" position="-7.8 -2 -20"><a-entity video-controls="src:#penguin-video" class="clickable"></a-entity></a-entity>
-            <a-video scale="6 4 1" class="clickable" autoplay="false" src="#penguin-video" position="-13 4 -20"></a-video> -->
-
-        <a-entity id="playPenguin" scale="3 3 1" position="-7.8 -2 -20">
+        <a-entity id="playPenguin" scale="3 3 1" position="-7.8 2 -20">
             <a-entity video-controls="src:#penguin-video" class="clickable"></a-entity>
         </a-entity>
-        <a-video id="showPenguin" scale="6 4 1" class="clickable" autoplay="false" src="#penguin-video" position="-13 4 -20"></a-video>
+        <a-video id="showPenguin" scale="15 10 1" class="clickable" autoplay="false" src="#penguin-video" position="-5 10 -20" rotation="30 -20 0 "></a-video>
 
-        <a-entity id="playDolphin" scale="3 3 1" position="3.4 2 -14.5">
+        <a-entity id="playDolphin" scale="3 3 1" position="2.2 1 -14.5">
             <a-entity video-controls="src:#dolphin-video" class="clickable"></a-entity>
         </a-entity>
         <a-video id="showDolphin" scale="6 4 1" class="clickable" autoplay="false" src="#dolphin-video" position="3.4 4 -14.5"></a-video>
 
 
-        <a-entity id="playOrca" scale="2 2 1" position="-10 0.65 -5" rotation="0 90 0">
+        <a-entity id="playOrca" scale="7 2 -3" position="-10 0.65 -5" rotation="0 90 0">
             <a-entity video-controls="src:#whale-video" class="clickable"></a-entity>
         </a-entity>
-        <a-video id="showOrca" scale="9 6 1" class="clickable" autoplay="false" src="#whale-video" position="-10 6 2" rotation="45 90 0"></a-video>
+        <a-video id="showOrca" scale="20 10 -3" class="clickable" autoplay="false" src="#whale-video" position="-14 6 -10" rotation="30 90 0"></a-video>
+
+        <a-entity id="playShark" scale="2 2 1" position="2 3 -20" rotation="30 0 0">
+            <a-entity video-controls="src:#shark-video" class="clickable"></a-entity>
+        </a-entity>
+        <a-video id="showShark" scale="20 14 1" class="clickable" autoplay="false" src="#shark-video" position="0 14 -20" rotation="35 0 0"></a-video>
 
         <!-- CHECKPOINT -->
-        <a-cylinder class="clickable orcaWhale" checkpoint radius="1" height="1" position="-2 0 -4" color="black"></a-cylinder>
-        <a-cylinder class="clickable dolphin" checkpoint radius="1" height="1" position="3.4 0 -8.5" color="black"></a-cylinder>
-        <a-cylinder class="clickable penguin" checkpoint radius="1" height="1" position="-8 0 -12" color="black"></a-cylinder>
+        <a-cylinder src="#ocean" class="clickable orcaWhale" checkpoint radius="1" height="1" position="-9 0 -7"></a-cylinder>
+        <a-cylinder src="#ocean" class="clickable dolphin" checkpoint radius="1" height="1" position="3.4 0 -8.5"></a-cylinder>
+        <a-cylinder src="#ocean" class="clickable penguin" checkpoint radius="1" height="1" position="-8 0 -12"></a-cylinder>
+        <a-cylinder src="#ocean" class="clickable shark" checkpoint radius="1" height="1" position="-4 0 -6"></a-cylinder>
 
+            <!-- Go Home -->
+            <a-cylinder src="#ocean" class="clickable goHome" checkpoint radius="1" height="1" position="0 0 0"></a-cylinder>
 
 
 
