@@ -32,11 +32,19 @@ $(document).ready(function() {
 
     // Links to virtual worlds
     $(".dropBut").on("click", function(){
-      window.location.href = '../ocean.html';
+        if (location.hostname === "localhost") {
+            window.location.href = '/ocean.html';
+        } else {
+            window.location.href = '/animal-aid/ocean.html';
+        }
     });
 
     $(".treeBut").on("click", function(){
-      window.location.href = '../jungle.html';
+        if (location.hostname === "localhost") {
+            window.location.href = '/jungle.html';
+        } else {
+            window.location.href = '/animal-aid/jungle.html';
+        }
     });
 
     // Back-To-Top Button
