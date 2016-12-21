@@ -2,6 +2,7 @@
 var isPenguinOn = true;
 var isOrcaOn = true;
 var isDolphinOn = true;
+var isSharkOn = true;
 
 
 // Iterates through all videos and pause them (cant override autoplay)
@@ -14,6 +15,10 @@ var freezeVideos = function(){
 
 var redirectHome = function(){
     window.location.href = '/index.html';
+};
+
+var goJungling = function(){
+    window.location.href = '/jungle.html';
 };
 
 //  THE NEXT 4 :
@@ -58,6 +63,9 @@ $(document).ready(function() {
     var playOrca = document.querySelector("#playOrca");
     var showShark = document.querySelector("#showShark");
     var playShark = document.querySelector("#playShark");
+    var userCam = document.querySelector("#userCam");
+
+
 
     $(".dolphin").on("click", playDolphinEvent );
 
@@ -70,7 +78,17 @@ $(document).ready(function() {
     $(".goHome").on("click", function() {
         var floor = document.querySelector(".floor");
         floor.attributes[5].value="0 5 0";
+        userCam.removeAttribute("universal-controls");
+        userCam.setAttribute("rotation", "73 -33 0");
         var goingHome = window.setTimeout(redirectHome, 5000);
+    });
+
+    $(".goJungling").on("click", function() {
+        var floor = document.querySelector(".floor");
+        floor.attributes[5].value="0 5 0";
+        userCam.removeAttribute("universal-controls");
+        userCam.setAttribute("rotation", "73 -33 0");
+        var goingJungling = window.setTimeout(goJungling, 5000);
     });
     // after saving them into variable sand loading the assets, delete the nodes off of the scene
     var myInterval = window.setInterval(function() {
