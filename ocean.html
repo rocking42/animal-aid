@@ -21,19 +21,28 @@
 <body>
     <a-scene physics>
         <a-assets>
+            <!-- VIDEOS -->
             <video id="whale-video" controls="false" loop="false" src="assets/videos/orca.mp4"></video>
             <video id="penguin-video" controls="false" loop="false" src="assets/videos/emperor_penguins.mp4"></video>
             <video id="shark-video" controls="false" loop="false" src="assets/videos/greatwhite.mp4"></video>
             <video id="dolphin-video" controls="false" loop="false" src="assets/videos/dolphins.mp4"></video>
+            <!-- SKINS -->
             <img src="assets/images/nightsky.jpg" id="background">
             <img src="assets/images/aa_ocean.jpg" id="ocean">
             <img src="assets/images/moonskin.png" id="moon">
+            <!-- MODELS -->
             <a-asset-item id="shark-obj" src="assets/shark.obj"></a-asset-item>
             <a-asset-item id="shark-mtl" src="assets/shark.mtl"></a-asset-item>
             <a-asset-item id="whale" src="assets/images/orca.dae"></a-asset-item>
             <a-asset-item id="dolphin" src="assets/images/dolphin.dae"></a-asset-item>
             <a-asset-item id="penguin" src="assets/images/penguin.dae"></a-asset-item>
             <a-asset-item id="iceberg" src="assets/images/iceberg.dae"></a-asset-item>
+            <!-- ICONS -->
+            <img src="assets/images/icons/orca.jpg" id="homeIcon">
+            <img src="assets/images/icons/shark.jpg" id="sharkIcon">
+            <img src="assets/images/icons/dolphin.ico" id="DolphinIcon">
+            <img src="assets/images/icons/penguin.png" id="penguinIcon">
+            <img src="assets/images/icons/orca.jpg" id="whaleIcon">
         </a-assets>
 
 
@@ -152,13 +161,13 @@
         <a-video id="showShark" scale="20 14 1" class="clickable" autoplay="false" src="#shark-video" position="0 14 -20" rotation="35 0 0"></a-video>
 
         <!-- CHECKPOINT -->
-        <a-cylinder src="#ocean" class="clickable orcaWhale" checkpoint radius="1" height="1" position="-9 0 -7"></a-cylinder>
-        <a-cylinder src="#ocean" class="clickable dolphin" checkpoint radius="1" height="1" position="3.4 0 -8.5"></a-cylinder>
-        <a-cylinder src="#ocean" class="clickable penguin" checkpoint radius="1" height="1" position="-8 0 -12"></a-cylinder>
-        <a-cylinder src="#ocean" class="clickable shark" checkpoint radius="1" height="1" position="-4 0 -6"></a-cylinder>
+        <a-cylinder src="#whaleIcon" class="clickable orcaWhale" checkpoint radius="1" height="1" position="-9 0 -7"></a-cylinder>
+        <a-cylinder src="#dolphinIcon" class="clickable dolphin" checkpoint radius="1" height="1" position="3.4 0 -8.5"></a-cylinder>
+        <a-cylinder src="#penguinIcon" class="clickable penguin" checkpoint radius="1" height="1" position="-8 0 -12"></a-cylinder>
+        <a-cylinder src="#sharkIcon" class="clickable shark" checkpoint radius="1" height="1" position="-4 0 -6"></a-cylinder>
 
             <!-- Go Home -->
-            <a-cylinder src="#ocean" class="clickable goHome" checkpoint radius="1" height="1" position="0 0 0"></a-cylinder>
+            <a-cylinder src="#homeIcon" class="clickable goHome" checkpoint radius="1" height="1" position="0 0 0"></a-cylinder>
 
 
 
