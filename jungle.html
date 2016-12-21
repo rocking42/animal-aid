@@ -19,7 +19,7 @@
 
   </head>
   <body>
-    <a-scene>
+    <a-scene physics>
       <!-- PRELOAD ASSETS -->
       <a-assets>
         <a-asset-item id="gorilla" src="assets/images/gorilla.dae"></a-asset-item>
@@ -34,23 +34,28 @@
         <video id="gorillaVid" src="assets/videos/gorilla.mp4">
         <video id="pandaVid" src="assets/videos/panda.mp4">
         <video id="elephantVid" src="assets/videos/elephant.mp4">
-        <img src="assets/images/gorillaCyl.jpg" id="gorillaCyl">
         <img src="assets/images/rainforest.jpg" id="rainforest">
+        <img src="assets/images/icons/homeImage.jpg" id="homeIcon">
+        <img src="assets/images/icons/rhinoIcon.png" id="rhinoIcon">
+        <img src="assets/images/icons/pandaIcon.jpg" id="pandaIcon">
+        <img src="assets/images/icons/elephantIcon.png" id="elephantIcon">
+        <img src="assets/images/icons/gorillaIcon.png" id="gorillaIcon">
       </a-assets>
       <!-- CONTROLS -->
-      <a-entity id="player" camera="userHeight: 1.6" wasd-controls look-controls checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
-        <a-entity cursor
+      <a-camera id="player" position="0 15.6 0" kinematic-body checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
+        <a-entity id="cursor" cursor
             position="0 0 -1"
             raycaster="objects: .clickable"
             scale="0.02 0.02 0.02"
             geometry="primitive: ring"
             material="color: aqua; shader: flat">
         </a-entity>
-      </a-entity>
+      </a-camera>
       <!-- SURROUNDINGS -->
       <a-sky src="#rainforest" rotation="0 -130 0"></a-sky>
       <!-- TERRAIN -->
       <a-ocean width="161" depth="161" density="110" opacity="1" position="0 0.2 0" color="0099399.00"></a-ocean>
+      <a-box class="floor" width="161" depth="161" opacity="0.05" static-body position="0 -0.4 0" color="1049759.00"></a-box>
       <a-entity collada-model="#tree" scale="1 1 1" position="-14.40 0 -2.17" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="13.63 0 15.64" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="-5.05 0 -18.81" ></a-entity>
@@ -108,12 +113,14 @@
         <a-entity id="elephantControl" play="false" class="clickable" video-controls="src:#elephantVid; textColor:black" ></a-entity>
       </a-entity>
       <!-- CHECKPOINTS -->
-      <a-cylinder class="clickable gorilla" checkpoint radius="1" height="1" position="-0.46 0 4.98" src="#gorillaCyl"></a-cylinder>
-      <a-cylinder class="clickable rhino" checkpoint radius="1" height="1" position="1.84 0 -8.75" color="#39BB82"></a-cylinder>
-      <a-cylinder class="clickable panda" checkpoint radius="1" height="1" position="-3 0 0" color="#39BB82"></a-cylinder>
-      <a-cylinder class="clickable elephant" checkpoint radius="1" height="1" position="-7.87 0 -8.6" color="#39BB82"></a-cylinder>
+      <a-cylinder class="clickable gorilla" checkpoint radius="1" height="1" position="-0.46 0 4.98" src="#gorillaIcon"></a-cylinder>
+      <a-cylinder class="clickable rhino" checkpoint radius="1" height="1" position="1.84 0 -8.75" src="#rhinoIcon"></a-cylinder>
+      <a-cylinder class="clickable panda" checkpoint radius="1" height="1" position="-3 0 0" src="#pandaIcon"></a-cylinder>
+      <a-cylinder class="clickable elephant" checkpoint radius="1" height="1" position="-7.87 0 -8.6" src="#elephantIcon"></a-cylinder>
+      <a-cylinder class="clickable home" checkpoint radius="1" height="1" position="0.85 0 -3.34" src="#homeIcon"></a-cylinder>
+      <a-cylinder class="clickable ocean" checkpoint radius="1" height="1" position="3.85 0 -6.34" color="aqua"></a-cylinder>
       <!-- LINKS -->
-      
+
     </a-scene>
 
   </body>
