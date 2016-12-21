@@ -1,5 +1,7 @@
-var trigger = false;
 var triggerData = "";
+var isPenguinOn = true;
+var isOrcaOn = true;
+var isDolphinOn = true;
 
 var freezeVideos = function(){
     var videos = document.querySelectorAll("video");
@@ -8,25 +10,22 @@ var freezeVideos = function(){
     }
 };
 
-var deleteVideos = function() {
-    if (document.querySelector("#showPenguin")) {
-        document.querySelector("#showPenguin").removeFromParent();
-    }
-    if (document.querySelector("#playPenguin")) {
-        document.querySelector("#playPenguin").removeFromParent();
-    }
-    if (document.querySelector("#showDolphin")) {
-        document.querySelector("#showDolphin").removeFromParent();
-    }
-    if (document.querySelector("#playDolphin")) {
-        document.querySelector("#playDolphin").removeFromParent();
-    }
-    if(document.querySelector("#showOrca")) {
-        document.querySelector("#showOrca").removeFromParent();
-    }
-    if(document.querySelector("#playOrca")) {
-        document.querySelector("#playOrca").removeFromParent();
-    }
+var deleteDolphin = function () {
+    showDolphin.removeFromParent();
+    playDolphin.removeFromParent();
+    isDolphinOn = false;
+};
+
+var deleteOrca = function() {
+    showOrca.removeFromParent();
+    playOrca.removeFromParent();
+    isOrcaOn = false;
+};
+
+var deletePenguin = function() {
+    playPenguin.removeFromParent();
+    showPenguin.removeFromParent();
+    isPenguinOn = false;
 };
 
 
@@ -50,59 +49,67 @@ $(document).ready(function() {
 
     var myInterval = window.setInterval(function() {
         if (scene.hasLoaded) {
-            deleteVideos();
+            deletePenguin();
+            deleteOrca();
+            deleteDolphin();
             clearInterval(myInterval);
         }
     }, 500);
 });
 
 var playPenguinEvent = function (event) {
-    deleteVideos();
-    if (trigger === true || triggerData === "penguin") {
-        showPenguin.removeFromParent();
-        playPenguin.removeFromParent();
-        trigger = false;
+    freezeVideos();
+    if (isPenguinOn === true) {
+        deletePenguin();
     } else {
-
+        if (isOrcaOn === true) {
+            deleteOrca();
+        }
+        if (isDolphinOn === true) {
+            deleteDolphin();
+        }
         showPenguin.addToParent("scene");
         playPenguin.addToParent("scene");
         var $playPenguinImage = $("#playPenguin").find("a-image");
         $playPenguinImage.trigger("click");
-        trigger = true;
-        triggerData = event.target.attributes[0].value;
+        isPenguinOn = true;
     }
 };
 
 var playDolphinEvent = function (event) {
-    deleteVideos();
-    if (trigger === true || triggerData === "dolphin") {
-        showDolphin.removeFromParent();
-        playDolphin.removeFromParent();
-        trigger = false;
+    freezeVideos();
+    if (isDolphinOn === true) {
+        deleteDolphin();
     } else {
-
+        if (isPenguinOn === true) {
+            deletePenguin();
+        }
+        if (isOrcaOn === true) {
+            deleteOrca();
+        }
         showDolphin.addToParent("scene");
         playDolphin.addToParent("scene");
         var $playDolphinImage = $("#playDolphin").find("a-image");
         $playDolphinImage.trigger("click");
-        trigger = true;
-        triggerData = event.target.attributes[0].value;
+        isDolphinOn = true;
     }
 };
 
 var playOrcaEvent = function (event) {
-    deleteVideos();
-    if (trigger === true || triggerData === "orca") {
-        showOrca.removeFromParent();
-        playOrca.removeFromParent();
-        trigger = false;
+    freezeVideos();
+    if (isOrcaOn === true) {
+        deleteOrca();
     } else {
-
+        if (isPenguinOn === true) {
+            deletePenguin();
+        }
+        if (isDolphinOn === true) {
+            deleteDolphin();
+        }
         showOrca.addToParent("scene");
         playOrca.addToParent("scene");
         var $playOrcaImage = $("#playOrca").find("a-image");
         $playOrcaImage.trigger("click");
-        trigger = true;
-        triggerData = event.target.attributes[0].value;
+        isOrcaOn = true;
     }
 };
