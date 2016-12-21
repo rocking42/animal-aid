@@ -1,41 +1,352 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 
 <head>
-	<meta charset='UTF-8'>
+	<title>HornyPanda</title>
+	<!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta charset="utf-8">
+	<title>Your page title here :)</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-	<title>Simple Loader</title>
+	<!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<style>
-		/* This only works with JavaScript,
-		   if it's not present, don't show loader */
-		.no-js #loader { display: none;  }
-		.js #loader { display: block; position: absolute; left: 100px; top: 0; }
-	</style>
+	<!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+
+	<!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" href="assets/stylesheets/normalize.css">
+	<link rel="stylesheet" href="assets/stylesheets/skeleton.css">
+	<link rel="stylesheet" href="assets/stylesheets/style.css">
+	<link rel="stylesheet" href="assets/stylesheets/animals.css">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+	<!--  -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="assets/javascripts/jquery.stellar.js"></script>
+	<script src="assets/javascripts/jquery.nicescroll.js"></script>
+  <script src="assets/javascripts/main.js"></script>
+	<script src="https://use.fontawesome.com/64d2b1cfe9.js"></script>
+
+	<!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
 
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
-
-	<script src="https://github.com/Modernizr/Modernizr/raw/master/modernizr.js"></script>
-	<script>
-		// Wait for window load
-		$(window).load(function() {
-			// Animate loader off screen
-			$("#loader").animate({
-				top: -200
-			}, 1500);
-		});
-	</script>
+	<!-- SCRIPTS
+  __________________________________________________  -->
 </head>
 
 <body>
-awdawdwd
 
-	<img src="assets/images/aa_ocean.jpg" id="loader">
+	<div class="container">
+
+		<progress value="0"></progress>
+
+		<!-- Primary Page Layout
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+		<!-- <div class="row">
+	    <div class="one-half column" style="margin-top: 25%">
+	      <h4>Basic Page</h4>
+	      <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+	    </div>
+	  </div> -->
+
+		<!-- Fixed Buttons -->
+
+		<div class="cartDiv">42</div>
+		<i class="fa fa-arrow-circle-up fa-4x upBut" aria-hidden="true"></i>
+
+		<!-- <i class="fa fa-cubes fa-4x cubeBut" aria-hidden="true"></i> -->
+		<i class="fa fa-tint fa-4x dropBut" aria-hidden="true"></i>
+		<i class="fa fa-pagelines fa-4x treeBut" aria-hidden="true"></i>
+
+		<i class="fa fa-arrow-circle-down fa-4x downBut" aria-hidden="true"></i>
+
+		<!-- Fixed Buttons End -->
 
 
-	<img src="//farm6.static.flickr.com/5299/5400751421_55d49b2786_o.jpg">
+		<div id="parallaxPage" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<!-- <div class="donBut">Parallax</div> -->
+				</div>
+			</div>
+		</div>
+
+		<!-- <div id="choose3dWorld" class="animalImage" data-stellar-background-ratio="0.4"  >
+	    <div class="row">
+	      <div id="landSelect" class="one-half column animalImage" data-stellar-background-ratio="0.4">
+	        <h1>Welcome To The Jungle In 3D!</h1>
+	      </div>
+	      <div id="oceanSelect" class="one-half column animalImage" data-stellar-background-ratio="0.4">
+	        <h1>Under The Sea In 3D!</h1>
+	      </div>
+	    </div>
+	  </div> -->
+
+		<div id="animal_1" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_2" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_3" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_4" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_5" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_6" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_7" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_8" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_9" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_10" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_11" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_12" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_13" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_14" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_15" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_16" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_17" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_18" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_19" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_20" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_21" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_22" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_23" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_24" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div id="animal_25" class="animalImage" data-stellar-background-ratio="0.4">
+			<div class="row">
+				<div class="twelve columns">
+					<div class="donBut">Donate</div>
+					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<a href="#" id="back-to-top" title="Back to top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+
+		<!-- End Document
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	</div>
 
 </body>
 

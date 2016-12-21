@@ -1,0 +1,87 @@
+/* FOUNDATION */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+
+h1::first-letter {
+    font-size: 60px;
+    font-weight: 600;
+    color:#3cb0f8;
+}
+
+/* PROGRESS BAR */
+
+progress {
+  /* Positioning */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+  /*bottom: 0;*/
+
+  /* Dimensions */
+  width: 100%;
+  height: 7px;
+
+  /* Reset the appearance */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  /* Get rid of the default border in Firefox/Opera. */
+  border: none;
+
+  /* Progress bar container for Firefox/IE10+ */
+  background-color: transparent;
+
+  /* Progress bar value for IE10+ */
+  color: ghostwhite;
+}
+
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+progress::-webkit-progress-value {
+  background-color: ghostwhite;
+}
+
+progress::-moz-progress-bar {
+  background-color: ghostwhite;
+}
+
+/* BACK TO TOP */
+
+#back-to-top {
+  position: fixed;
+  bottom: 2vh;
+  right: 48vw;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  border: 0;
+  /*border-radius: 2px;*/
+  text-decoration: none;
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+}
+#back-to-top:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.6);
+}
+#back-to-top.show {
+  opacity: 1;
+}
