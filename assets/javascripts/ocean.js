@@ -1,14 +1,19 @@
-var triggerData = "";
+// Follows if each video is playing or not
 var isPenguinOn = true;
 var isOrcaOn = true;
 var isDolphinOn = true;
 
+
+// Iterates through all videos and pause them (cant override autoplay)
 var freezeVideos = function(){
     var videos = document.querySelectorAll("video");
     for (var i = 0 ; i < videos.length ; i += 1) {
         videos[i].pause();
     }
 };
+
+//  THE NEXT 3 :
+    // remove the video and controllers from site and reset the triggers
 
 var deleteDolphin = function () {
     showDolphin.removeFromParent();
@@ -33,6 +38,7 @@ $(document).ready(function() {
 
     freezeVideos();
 
+    // once the scene has loaded find all videos, controllers and scene and save them into variables
     var scene = document.querySelector("a-scene");
     var showPenguin = document.querySelector("#showPenguin");
     var playPenguin = document.querySelector("#playPenguin");
@@ -47,6 +53,8 @@ $(document).ready(function() {
 
     $(".orcaWhale").on("click", playOrcaEvent );
 
+
+    // after saving them into variable sand loading the assets, delete the nodes off of the scene
     var myInterval = window.setInterval(function() {
         if (scene.hasLoaded) {
             deletePenguin();
@@ -57,11 +65,14 @@ $(document).ready(function() {
     }, 500);
 });
 
+//  EVENT LISTENERS FOR PLATFORMS
+    // If selected video is playing and clicked again, shut it down
+        // OTHERWISE get rid of the rest of the videos on scene and launch the current video
+
 var playPenguinEvent = function (event) {
-    freezeVideos();
-    if (isPenguinOn === true) {
+    if (isPenguinOn === true) { // If penguin is playing and clicked again, shut it down
         deletePenguin();
-    } else {
+    } else { // OTHERWISE get rid of the rest of the videos on scene and launch the penguin video
         if (isOrcaOn === true) {
             deleteOrca();
         }
@@ -77,7 +88,6 @@ var playPenguinEvent = function (event) {
 };
 
 var playDolphinEvent = function (event) {
-    freezeVideos();
     if (isDolphinOn === true) {
         deleteDolphin();
     } else {
@@ -96,7 +106,6 @@ var playDolphinEvent = function (event) {
 };
 
 var playOrcaEvent = function (event) {
-    freezeVideos();
     if (isOrcaOn === true) {
         deleteOrca();
     } else {
