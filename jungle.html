@@ -14,7 +14,6 @@
     <script src="https://github.com/ngokevin/aframe-physics-components/blob/master/dist/aframe-physics-components.min.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
-    <!-- <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script> -->
     <script src="assets/javascripts/aframe-video-controls.js" charset="utf-8"></script>
     <script src="assets/javascripts/jungle.js"></script>
 
@@ -28,15 +27,15 @@
         <a-asset-item id="cheetah" src="assets/images/cheetah.dae"></a-asset-item>
         <a-asset-item id="tapir" src="assets/images/tapir.dae"></a-asset-item>
         <a-asset-item id="panda" src="assets/images/panda.dae"></a-asset-item>
-        <a-asset-item id="grass" src="assets/images/grass.dae"></a-asset-item>
         <a-asset-item id="tree" src="assets/images/tree1.dae"></a-asset-item>
         <a-asset-item id="rock" src="assets/images/rock.dae"></a-asset-item>
         <a-asset-item id="rhino" src="assets/images/rhino.dae"></a-asset-item>
         <video id="rhinoVid" src="assets/videos/rhinovid.mp4">
         <video id="gorillaVid" src="assets/videos/gorilla.mp4">
+        <video id="pandaVid" src="assets/videos/panda.mp4">
+        <video id="elephantVid" src="assets/videos/elephant.mp4">
+        <img src="assets/images/gorillaCyl.jpg" id="gorillaCyl">
         <img src="assets/images/rainforest.jpg" id="rainforest">
-        <a-mixin id="checkpoint"></a-mixin>
-        <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
       </a-assets>
       <!-- CONTROLS -->
       <a-entity camera="userHeight: 1.6" wasd-controls look-controls checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
@@ -52,7 +51,7 @@
       <a-sky src="#rainforest" rotation="0 -130 0"></a-sky>
       <!-- TERRAIN -->
       <a-ocean width="161" depth="161" density="110" opacity="1" position="0 0.2 0" color="0099399.00"></a-ocean>
-      <a-entity collada-model="#tree" scale="1 1 1" position="-15 0 0" ></a-entity>
+      <a-entity collada-model="#tree" scale="1 1 1" position="-14.40 0 -2.17" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="13.63 0 15.64" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="-5.05 0 -18.81" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="-11.52 0 18.50" ></a-entity>
@@ -60,7 +59,6 @@
       <a-entity collada-model="#tree" scale="1 1 1" position="8.83 0 4.95" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="-16.72 0 10.21" ></a-entity>
       <a-entity collada-model="#rock" scale="20 20 20" position="-2.34 -3.00 27.19" rotation="-1.74 -2.86 18.91 "></a-entity>
-      <!-- <a-entity collada-model="#grass" scale="3 3 3" position="-113.52 -30.80 111.68" static-body></a-entity> -->
       <!-- ANIMALS -->
       <a-entity animation__yoyo="property: position; dir: alternate; dur: 500;
                                 easing: easeInSine; loop: true; to: 0 0.1 0">
@@ -94,6 +92,8 @@
       <a-video src="#rhinoVid" id="showRhino" class="clickable" width="16" height="9" position="15.97 12.66 -17.94" rotation="0 -50.99 -0.57" scale="2.19 1.94 1">
       </a-video>
       <a-video src="#gorillaVid" id="showGorilla" class="clickable" scale="1.5 1.4 1.1" width="16" height="9" position="0.75 13.72 15.53" rotation="14.32 -163.87 0.57"></a-video>
+      <a-video src="#pandaVid" id="showPanda" class="clickable" scale="1.5 1.4 1.1" width="16" height="9" position="-15.99 13.72 0.20" rotation="14.32 111.73 0.57"></a-video>
+      <a-video src="#elephantVid" id="showElephant" class="clickable" scale="1.5 1.4 1.1" width="16" height="9" position="-15.99 11.77 -15.19" rotation="20.05 71.05 0.00"></a-video>
       <!-- VIDEO CONTROLS -->
       <a-entity id="playRhino" position="8.77 -4.52 -1.74" rotation="0 -49.27 0" scale="4 4 4">
         <a-entity id="rhinoControl" play="false" class="clickable" video-controls="src:#rhinoVid; textColor:black" ></a-entity>
@@ -101,10 +101,17 @@
       <a-entity id="playGorilla" position="1.79 21.32 18.22" rotation="-13.18 0.57 -174.75" scale="10.89 7.43 4">
         <a-entity id="gorillaControl" play="false" class="clickable" video-controls="src:#gorillaVid; textColor:black" ></a-entity>
       </a-entity>
+      <a-entity id="playPanda" position="-21.14 22.10 5.67" rotation="-11.46 -63.03 179.34" scale="10.89 7.43 4">
+        <a-entity id="pandaControl" play="false" class="clickable" video-controls="src:#pandaVid; textColor:black" ></a-entity>
+      </a-entity>
+      <a-entity id="playElephant" position="-24.16 20.11 -14.4" rotation="-8.59 -99.69 178.76" scale="10.89 7.43 4">
+        <a-entity id="elephantControl" play="false" class="clickable" video-controls="src:#elephantVid; textColor:black" ></a-entity>
+      </a-entity>
       <!-- CHECKPOINTS -->
-      <a-cylinder class="clickable gorilla" checkpoint radius="1" height="1" position="-0.46 0 4.98" color="#39BB82"></a-cylinder>
-      <a-cylinder class="clickable rhino" data-type="rhino" checkpoint radius="1" height="1" position="1.84 0 -8.75" color="#39BB82"></a-cylinder>
-      <a-cylinder class="clickable" checkpoint radius="1" height="1" position="-3 0 0" color="#39BB82"></a-cylinder>
+      <a-cylinder class="clickable gorilla" checkpoint radius="1" height="1" position="-0.46 0 4.98" src="#gorillaCyl"></a-cylinder>
+      <a-cylinder class="clickable rhino" checkpoint radius="1" height="1" position="1.84 0 -8.75" color="#39BB82"></a-cylinder>
+      <a-cylinder class="clickable panda" checkpoint radius="1" height="1" position="-3 0 0" color="#39BB82"></a-cylinder>
+      <a-cylinder class="clickable elephant" checkpoint radius="1" height="1" position="-7.87 0 -8.6" color="#39BB82"></a-cylinder>
 
     </a-scene>
 

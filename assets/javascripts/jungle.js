@@ -1,6 +1,8 @@
 var triggerData = "";
 var isRhinoOn = true;
 var isGorillaOn = true;
+var isPandaOn = true;
+var isElephantOn = true;
 
 var freezeVideos = function(){
     var videos = document.querySelectorAll("video");
@@ -21,6 +23,18 @@ var deleteGorilla = function() {
     isGorillaOn = false;
 };
 
+var deletePanda = function() {
+    showPanda.removeFromParent();
+    playPanda.removeFromParent();
+    isPandaOn = false;
+};
+
+var deleteElephant = function() {
+    showElephant.removeFromParent();
+    playElephant.removeFromParent();
+    isElephantOn = false;
+};
+
 $(document).ready(function() {
 
     freezeVideos();
@@ -30,17 +44,24 @@ $(document).ready(function() {
     var playRhino = document.querySelector("#playRhino");
     var showGorilla = document.querySelector("#showGorilla");
     var playGorilla = document.querySelector("#playGorilla");
+    var showPanda = document.querySelector("#showPanda");
+    var playPanda = document.querySelector("#playPanda");
+    var showElephant = document.querySelector("#showElephant");
+    var playElephant = document.querySelector("#playElephant");
 
     $(".rhino").on("click", playRhinoEvent );
-
     $(".gorilla").on("click", playGorillaEvent );
+    $(".panda").on("click", playPandaEvent );
+    $(".elephant").on("click", playElephantEvent );
 
     var myInterval = window.setInterval(function() {
         if (scene.hasLoaded) {
             var ocean = document.querySelector("a-ocean");
-             ocean.pause();
+            ocean.pause();
             deleteRhino();
             deleteGorilla();
+            deletePanda();
+            deleteElephant();
             clearInterval(myInterval);
         }
     }, 500);
@@ -53,6 +74,12 @@ var playRhinoEvent = function (event) {
     } else {
         if (isGorillaOn === true) {
             deleteGorilla();
+        }
+        if (isPandaOn === true) {
+            deletePanda();
+        }
+        if (isElephantOn === true) {
+          deleteElephant();
         }
         showRhino.addToParent("scene");
         playRhino.addToParent("scene");
@@ -70,6 +97,12 @@ var playGorillaEvent = function (event) {
         if (isRhinoOn === true) {
             deleteRhino();
         }
+        if (isPandaOn === true) {
+            deletePanda();
+        }
+        if (isElephantOn === true) {
+          deleteElephant();
+        }
         showGorilla.addToParent("scene");
         playGorilla.addToParent("scene");
         var $playGorillaImage = $("#playGorilla").find("a-image");
@@ -78,97 +111,46 @@ var playGorillaEvent = function (event) {
     }
 };
 
-// var trigger = false;
-// var triggerData = "";
-//
-// var freezeVideos = function(){
-//     var videos = document.querySelectorAll("video");
-//     for (var i = 0 ; i < videos.length ; i += 1) {
-//         videos[i].pause();
-//     }
-// };
-//
-// var deleteVideos = function() {
-//     if (document.querySelector("#showRhino")) {
-//         showPenguin.removeFromParent();
-//     }
-//     if (document.querySelector("#playRhino")) {
-//         playPenguin.removeFromParent();
-//     }
-//     if (document.querySelector("#showGorilla")) {
-//         playDolphin.removeFromParent();
-//     }
-//     if (document.querySelector("#playGorilla")) {
-//         showDolphin.removeFromParent();
-//     }
-// };
-//
-//
-// $(document).ready(function() {
-//
-//     var avideo = $("a-video");
-//     var video = $("video");
-//     var controls = $(".controls");
-//     var scene = document.querySelector("a-scene");
-//     var showRhino = document.querySelector("#showRhino");
-//     var playRhino = document.querySelector("#playRhino");
-//     var showGorilla = document.querySelector("#showGorilla");
-//     var playGorilla = document.querySelector("#playGorilla");
-//
-//     function playVid() {
-//         if (this.attributes.src.value === "https://res.cloudinary.com/dxbh0pppv/image/upload/c_scale,h_512,q_25/v1471016296/pause_ndega5.png") {
-//             console.log("play");
-//             avideo.addToParent(scene);
-//         } else {
-//             console.log("pause");
-//             avideo.removeFromParent();
-//         }
-//     }
-//
-//     // console.log("happy");
-//     // var ocean = document.querySelector("a-ocean");
-//     // ocean.pause();
-//     // $.each(avideo, function() {
-//     //     this.removeFromParent();
-//     // });
-//     // var rhinoControl = $("#rhinoControl");
-//     // var childVid = rhinoControl.children()[0];
-//     // $(childVid).on("click", playVid);
-//     //
-//
-//     $("#rhinoCyl").on("click", playRhinoEvent);
-//
-//     var myInterval = window.setInterval(function() {
-//         if (scene.hasLoaded) {
-//
-//           $.each(video, function() {
-//               this.pause();
-//           });
-//           $.each(avideo, function() {
-//               this.removeFromParent();
-//           });
-//           $.each(controls, function() {
-//             this.removeFromParent();
-//           });
-//           clearInterval(myInterval);
-//         }
-//     }, 1000);
-//
-//     function playRhinoEvent(event) {
-//         freezeVideos();
-//         if (trigger === false || triggerData != "rhino") {
-//             showRhino.addToParent("scene");
-//             playRhino.addToParent("scene");
-//             var $playRhinoImage = $("#playRhino").find("a-image");
-//             $playRhinoImage.trigger("click");
-//             trigger = true;
-//             triggerData = event.target.attributes[0].value;
-//         } else {
-//             showRhino.removeFromParent();
-//             playRhino.removeFromParent();
-//             trigger = false;
-//         }
-//     };
-//
-//     // avideo.removeFromParent();
-// });
+var playPandaEvent = function (event) {
+    freezeVideos();
+    if (isPandaOn === true) {
+        deletePanda();
+    } else {
+        if (isRhinoOn === true) {
+            deleteRhino();
+        }
+        if (isGorillaOn === true) {
+            deleteGorilla();
+        }
+        if (isElephantOn === true) {
+          deleteElephant();
+        }
+        showPanda.addToParent("scene");
+        playPanda.addToParent("scene");
+        var $playPandaImage = $("#playPanda").find("a-image");
+        $playPandaImage.trigger("click");
+        isPandaOn = true;
+    }
+};
+
+var playElephantEvent = function (event) {
+    freezeVideos();
+    if (isElephantOn === true) {
+        deleteElephant();
+    } else {
+        if (isRhinoOn === true) {
+            deleteRhino();
+        }
+        if (isGorillaOn === true) {
+            deleteGorilla();
+        }
+        if (isPandaOn === true) {
+          deletePanda();
+        }
+        showElephant.addToParent("scene");
+        playElephant.addToParent("scene");
+        var $playElephantImage = $("#playElephant").find("a-image");
+        $playElephantImage.trigger("click");
+        isElephantOn = true;
+    }
+};
