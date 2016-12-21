@@ -9,6 +9,8 @@
     <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.1.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+
     <script src="https://github.com/ngokevin/aframe-physics-components/blob/master/dist/aframe-physics-components.min.js"></script>
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
     <!-- <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script> -->
@@ -34,9 +36,11 @@
         </a-assets>
 
 
-        <a-entity camera="userHeight: 1.6" wasd-controls look-controls universal-controls kinematic-body jump-ability="maxJumps: 1.3; distance: 40;">
+        <a-entity camera="userHeight: 1.6" wasd-controls look-controls kinematic-body jump-ability="maxJumps: 1.3; distance: 40;" checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
             <a-entity cursor position="0 0 -1" raycaster="objects: .clickable" scale="0.02 0.02 0.02" geometry="primitive: ring" material="color: black; shader: flat"></a-entity>
         </a-entity>
+
+
 
         <!-- TURTLE -->
 
@@ -155,11 +159,15 @@
         </a-entity>
         <a-video id="showOrca" scale="9 6 1" class="clickable" autoplay="false" src="#whale-video" position="-10 6 2" rotation="45 90 0"></a-video>
 
+        <!-- CHECKPOINT -->
+        <a-cylinder data-type="orca" class="clickable orcaWhale" checkpoint radius="1" height="1" position="-2 0 -4" color="black"></a-cylinder>
+        <a-cylinder data-type="dolphin" class="clickable dolphin" checkpoint radius="1" height="1" position="3.4 0 -8.5" color="black"></a-cylinder>
+        <a-cylinder data-type="penguin" class="clickable penguin" checkpoint radius="1" height="1" position="-8 0 -12" color="black"></a-cylinder>
+
+
+
+
     </a-scene>
-
-
-
-
 </body>
 
 </html>
