@@ -65,6 +65,11 @@ $(document).ready(function() {
             clearInterval(myInterval);
         }
     }, 500);
+
+    $("#oceanWorld").on("click", function() {
+      console.log("clicked");
+      window.location.href = "/ocean.html";
+    });
 });
 
 var playRhinoEvent = function (event) {

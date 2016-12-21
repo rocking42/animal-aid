@@ -38,7 +38,7 @@
         <img src="assets/images/rainforest.jpg" id="rainforest">
       </a-assets>
       <!-- CONTROLS -->
-      <a-entity camera="userHeight: 1.6" wasd-controls look-controls checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
+      <a-entity id="player" camera="userHeight: 1.6" wasd-controls look-controls checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
         <a-entity cursor
             position="0 0 -1"
             raycaster="objects: .clickable"
@@ -112,7 +112,8 @@
       <a-cylinder class="clickable rhino" checkpoint radius="1" height="1" position="1.84 0 -8.75" color="#39BB82"></a-cylinder>
       <a-cylinder class="clickable panda" checkpoint radius="1" height="1" position="-3 0 0" color="#39BB82"></a-cylinder>
       <a-cylinder class="clickable elephant" checkpoint radius="1" height="1" position="-7.87 0 -8.6" color="#39BB82"></a-cylinder>
-
+      <!-- LINKS -->
+      
     </a-scene>
 
   </body>
