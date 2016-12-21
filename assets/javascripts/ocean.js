@@ -107,6 +107,7 @@ $(document).ready(function() {
         // OTHERWISE get rid of the rest of the videos on scene and launch the current video
 
 var playPenguinEvent = function (event) {
+    freezeVideos();
     if (isPenguinOn === true) { // If penguin is playing and clicked again, shut it down
         deletePenguin();
     } else { // OTHERWISE get rid of the rest of the videos on scene and launch the penguin video
@@ -128,6 +129,7 @@ var playPenguinEvent = function (event) {
 };
 
 var playDolphinEvent = function (event) {
+    freezeVideos();
     if (isDolphinOn === true) {
         deleteDolphin();
     } else {
@@ -149,6 +151,7 @@ var playDolphinEvent = function (event) {
 };
 
 var playOrcaEvent = function (event) {
+    freezeVideos();
     if (isOrcaOn === true) {
         deleteOrca();
     } else {
@@ -170,6 +173,7 @@ var playOrcaEvent = function (event) {
 };
 
 var playSharkEvent = function (event) {
+    freezeVideos();
     if (isSharkOn === true) {
         deleteShark();
     } else {

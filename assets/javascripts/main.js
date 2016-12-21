@@ -30,6 +30,15 @@ $(document).ready(function() {
         progressBar.attr('value', value);
     });
 
+    // Links to virtual worlds
+    $(".dropBut").on("click", function(){
+      window.location.href = '../ocean.html';
+    });
+
+    $(".treeBut").on("click", function(){
+      window.location.href = '../jungle.html';
+    });
+
     // Back-To-Top Button
 
     if ($('#back-to-top').length) {
