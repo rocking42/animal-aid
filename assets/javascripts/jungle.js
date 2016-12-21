@@ -5,11 +5,19 @@ var isPandaOn = true;
 var isElephantOn = true;
 
 var redirectHome = function(){
+  if (location.hostname === "localhost") {
+    window.location.href = '/index.html';
+  } else {
     window.location.href = '/animal-aid/index.html';
+  }
 };
 
 var redirectOcean = function(){
+  if (location.hostname === "localhost") {
+    window.location.href = '/ocean.html';
+  } else {
     window.location.href = '/animal-aid/ocean.html';
+  }
 };
 
 var freezeVideos = function(){
