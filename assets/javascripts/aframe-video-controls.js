@@ -60,7 +60,7 @@
 	    src: { type: 'string'},
 	    size: { type: 'number', default: 1.0},
 	    distance: { type: 'number', default:2.0},
-	    backgroundColor: { default: 'black'},
+	    backgroundColor: { default: 'white'},
 	    barColor: { default: 'red'},
 	    textColor: { default: 'yellow'},
 	    infoTextBottom: { default: DEFAULT_INFO_TEXT_BOTTOM},
@@ -173,8 +173,8 @@
 
 	    this.bar_canvas = document.createElement("canvas");
 	    this.bar_canvas.setAttribute("id", "video_player_canvas");
-	    this.bar_canvas.width = 1024;
-	    this.bar_canvas.height = 256;
+	    this.bar_canvas.width = 0;
+	    this.bar_canvas.height = 0;
 	    this.bar_canvas.style.display = "none";
 
 	    this.context = this.bar_canvas.getContext('2d');
@@ -247,7 +247,7 @@
 	    // Create transport bar
 
 	    this.bar = document.createElement("a-plane");
-	    this.bar.setAttribute("color", "#000");
+	    this.bar.setAttribute("color", "#FFF");
 
 	    // On transport bar click, get point clicked, infer % of new pointer, and make video seek to that point
 
@@ -280,9 +280,9 @@
 
 	    // Append image icon + info text + bar to component root
 
-	    this.el.appendChild(this.bar_canvas);
+	    // this.el.appendChild(this.bar_canvas);
 	    this.el.appendChild(this.play_image);
-	    this.el.appendChild(this.bar);
+	    // this.el.appendChild(this.bar);
 
 
 	    // Attach double click behavior outside player once scene is loaded
