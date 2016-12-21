@@ -184,7 +184,7 @@
 	    // On icon image, change video state and icon (play/pause)
 
 	    this.play_image.addEventListener('click', function (event) {
-
+					console.log(event);
 	        if(!self.video_el.paused){
 	            this.setAttribute("src", self.play_image_src);
 
