@@ -71,3 +71,10 @@ $(document).ready(function() {
         });
     }
 });
+
+
+
+var win = "1000000$";
+var message = "can i please cash in my " + (win="undefined");
+
+console.log(message);

@@ -36,14 +36,6 @@ var goJungling = function(){
   }
 };
 
-var redirectOcean = function(){
-  if (location.hostname === "localhost") {
-    window.location.href = '/ocean.html';
-  } else {
-    window.location.href = '/animal-aid/ocean.html';
-  }
-};
-
 $(document).ready(function() {
     initialize();
     freezeVideos();
@@ -67,17 +59,14 @@ $(document).ready(function() {
                 animal["play"].addToParent("scene");
                 var $playVideo = $("#"+animal.name).find("a-image");
                 $playVideo.trigger("click");
-                animal.isOn = true;
+                debugger;
+                animal["isOn"] = true;
             } else if (animal.isOn ){
                 removeAnimal(animal);
             }
         }
     };
 
-    $(".playDolphin").on("click", playEvent );
-    $(".playPenguin").on("click", playEvent );
-    $(".playOrca").on("click", playEvent );
-    $(".playShark").on("click", playEvent );
     $(".play").on("click", playEvent );
 
     //  EVENT LISTENERS FOR PLATFORMS
@@ -91,6 +80,11 @@ $(document).ready(function() {
     $(".goJungling").on("click", function() {
         exitEffect();
         var goingJungling = window.setTimeout(goJungling, 5000);
+    });
+
+    $(".ocean").on("click", function() {
+        exitEffect();
+        var goingSwimming = window.setTimeout(redirectOcean, 5000);
     });
 
     var exitEffect = function () {
