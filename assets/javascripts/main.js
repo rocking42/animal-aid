@@ -1,3 +1,75 @@
+var locURL = "https://animal-data.herokuapp.com/animals.json";
+
+function modalDisplay(res) {
+  var template = $("#modal1").html();
+  var result = _.template(template);
+  result = result({name: res.name, description: res.description, vidURL: res.vidURL});
+  $(".detailModal").html(result);
+
+}
+
+function modalVidDisplay(res) {
+  var template = $("#modal2").html();
+  var result = _.template(template);
+  result = result({vidURL: res.vidURL});
+  $(".detailModal").html(result);
+}
+
+function displayAnimal(data, b,c, query) {
+  var res = data.find(function(animal) {
+    return animal.name === query;
+  });
+  modalDisplay(res);
+  var span = document.getElementsByClassName("close")[0];
+  var modal = document.querySelector('#myModalText');
+  modal.style.display = "block";
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  };
+  span.onclick = function() {
+    modal.style.display = "none";
+  };
+}
+
+function displayAnimalVid(data, b,c, query) {
+  var res = data.find(function(animal) {
+    return animal.name === query;
+  });
+  modalVidDisplay(res);
+  var modal = document.querySelector('#myModalVid');
+  var movie = document.querySelector(".animalMovie");
+  modal.style.display = "block";
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          movie.parentNode.removeChild(movie);
+          modal.style.display = "none";
+      }
+  };
+}
+
+var dataFun;
+var findAnimal = function(query, dataCont) {
+  dataFun = dataCont;
+  $.ajax({
+    url: locURL,
+    type: "GET",
+    crossDomain: true,
+    dataType: "JSON"
+  })
+  .done(function(a,b,c) {
+    if (dataFun === "text") {
+      displayAnimal(a,b,c, query);
+    } else {
+      displayAnimalVid(a,b,c,query);
+    }
+  })
+  .fail(function( jqXHR, textStatus ) {
+      console.log( "Request failed: " + textStatus );
+  });
+};
+
 $(document).ready(function() {
 
     // COMMENTED THIS METHOD OUT TO FIX JITTERY SCROLL. MAY NEED IT THOUGH
@@ -28,6 +100,18 @@ $(document).ready(function() {
     $(document).on('scroll', function() {
         value = $(window).scrollTop();
         progressBar.attr('value', value);
+    });
+
+    $(".infoBut").on("click", function() {
+        var change = this.getAttribute("data-type");
+        change = change.replace("-", " ");
+        findAnimal(change, "text");
+    });
+
+    $(".vidBut").on("click", function() {
+      var change = this.getAttribute("data-type");
+      change = change.replace("-", " ");
+      findAnimal(change, "video");
     });
 
     // Links to virtual worlds

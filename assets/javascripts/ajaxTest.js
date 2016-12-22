@@ -6,23 +6,52 @@ function modalDisplay(res) {
   result = result({name: res.name, description: res.description, vidURL: res.vidURL});
   $(".container").html(result);
 
-  var modal = document.querySelector('#myModal');
+}
+
+function modalVidDisplay(res) {
+  var template = $("#modal2").html();
+  var result = _.template(template);
+  result = result({vidURL: res.vidURL});
+  $(".container").html(result);
+}
+
+function displayAnimal(data, b,c, query) {
+  var res = data.find(function(animal) {
+    return animal.name === query;
+  });
+  modalDisplay(res);
+  var span = document.getElementsByClassName("close")[0];
+  var modal = document.querySelector('#myModalText');
   modal.style.display = "block";
   window.onclick = function(event) {
       if (event.target == modal) {
           modal.style.display = "none";
       }
   };
+  span.onclick = function() {
+    modal.style.display = "none";
+  };
 }
 
-function displayAnimal(data, b,c, query) {
-  res = data.find(function(animal) {
+function displayAnimalVid(data, b,c, query) {
+  var res = data.find(function(animal) {
     return animal.name === query;
   });
-  modalDisplay(res);
+  modalVidDisplay(res);
+  var modal = document.querySelector('#myModalVid');
+  var movie = document.querySelector(".animalMovie");
+  modal.style.display = "block";
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          movie.parentNode.removeChild(movie);
+          modal.style.display = "none";
+      }
+  };
 }
 
-var findAnimal = function(query) {
+var dataFun;
+var findAnimal = function(query, dataCont) {
+  dataFun = dataCont;
   $.ajax({
     url: locURL,
     type: "GET",
@@ -30,7 +59,11 @@ var findAnimal = function(query) {
     dataType: "JSON"
   })
   .done(function(a,b,c) {
-    displayAnimal(a,b,c, query);
+    if (dataFun === "text") {
+      displayAnimal(a,b,c, query);
+    } else {
+      displayAnimalVid(a,b,c,query);
+    }
   })
   .fail(function( jqXHR, textStatus ) {
       alert( "Request failed: " + textStatus );
@@ -38,8 +71,11 @@ var findAnimal = function(query) {
 };
 
 $(document).ready(function() {
-  $("#req").on("click", function() {
-    findAnimal(this.innerHTML);
+  $(".infoBut").on("click", function() {
+      findAnimal(this.getAttribute("data-type"), this.getAttribute("data-type"));
   });
 
+  $(".vidBut").on("click", function() {
+    findAnimal(this.innerHTML, this.getAttribute("data-type"));
+  });
 });

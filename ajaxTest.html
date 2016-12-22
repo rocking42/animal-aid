@@ -11,19 +11,29 @@
   <title>Document</title>
 </head>
 <body>
-  <button id="req">Lion</button>
+  <button id="req" data-type="text">Lion</button>
+  <button id="LionVid" data-type="video">Lion</button>
   <div class="container"></div>
 
   <script type="html/template" charset="utf-8" id="modal1">
-  <div id="myModal" class="modal">
+  <div id="myModalText" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
       <p><%= name %></p>
       <p><%= description %></p>
-      <p><%= vidURL %></p>
     </div>
   </div>
+  </script>
+
+  <script type="html/template" id="modal2" data-type="video">
+    <div id="myModalVid" class="modal">
+      <!-- Modal content -->
+      <div class="modalVideo">
+        <span class="close">&times;</span>
+        <iframe class="animalMovie" width="90%" height="90%" src="<%= vidURL %>" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
   </script>
 
 </body>
