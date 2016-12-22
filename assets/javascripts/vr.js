@@ -30,7 +30,7 @@ var checkRoot = function(root) {
     return '/animal-aid/';
   }
 };
-var redirect = function(){
+var redirect = function(event){
     window.location.href = checkRoot(location.hostname) + event.target.attributes[2].value + '.html';
 };
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
     // add event listner to the redirect links ( home page / jungle link / ocean link )
     $(".redirect").on("click", function(e) {
       exitEffect();
-      var redirecting = window.setTimeout(redirect, 5000);
+      var redirecting = window.setTimeout(redirect(event), 5000);
     });
 
     // exit effects to simulate free fall out of the world
