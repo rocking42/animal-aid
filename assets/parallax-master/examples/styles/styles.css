@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  /*background-image: url("../images/mainbackground.png");
+  background-size: cover;
+  background-position: center bottom;*/
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.woo {
+  height: 500px;
+  width: 300px;
+  position: relative;
+  left: 300px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+
+}
+
+/*.container {
+  z-index: 99999999999999999999;
+  width: 100vw;
+  height: 100vh;
+}*/
+
+.scene {
+  padding: 0;
+  margin: 0;
+}
+
+/*.fill {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  left: 5%;
+  top: 5%;
+}*/
+
+/*.expand-width {
+  width: 100%;
+}*/
+
+/*.border {
+  border: 2px dashed #00FFAA;
+}*/
