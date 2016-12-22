@@ -1,3 +1,37 @@
+/*@keyframes moveIceImages {
+  0% {
+    top: 0%;
+    left: 0%
+  }
+  100% {
+    top: 5%;
+    left: 5%
+  }
+}
+
+@keyframes moveLandImages {
+  0% {
+    top: 0%;
+    left: 0%
+  }
+  100% {
+    top: -5%;
+    left: 5%
+  }
+}
+
+.moveIce {
+  animation: 5s moveIceImages;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.moveLand {
+  animation: 5s moveLandImages;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}*/
+
 /* FOUNDATION */
 
 * {
@@ -12,10 +46,35 @@
   width: 100vw;
 }
 
-h1::first-letter {
-    font-size: 60px;
-    font-weight: 600;
-    color:#3cb0f8;
+/*h1 {
+  backface-visibility: hidden;
+  position: absolute;
+  margin: 0 auto;
+  color: white;
+  z-index: 100000000000;
+  size: 50em;
+  left:50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat', sans-serif;
+}*/
+
+.header {
+  /*border: 10px solid white;*/
+  height: 30%;
+  width: 50%;
+  background-image: url("../images/backgroundImages/AnimalAidHeader.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  margin: 0 auto;
+  color: white;
+  z-index: 100000000000;
+  left:50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* PROGRESS BAR */
