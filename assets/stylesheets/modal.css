@@ -45,8 +45,8 @@
 /* Modal Content/Box */
 .modalVideo {
     margin: 2.5% auto;
-    width: 100vw; /* Could be more or less, depending on screen size */
-    height: 100vh;
+    width: 80vw; /* Could be more or less, depending on screen size */
+    height: 80vh;
     border-radius: 5px;
     z-index: 99999999999;
     /*-webkit-box-shadow: 5px 3px 8px 15px rgba(0,0,0,0.6);
