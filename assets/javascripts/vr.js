@@ -41,7 +41,7 @@ var redirectOcean = function(){
 };
 $(document).ready(function() {
     initialize();
-    // freezeVideos();
+    freezeVideos();
 
     // once the scene has loaded find all videos, controllers and scene and save them into variables
     var scene = document.querySelector("a-scene");
