@@ -31,8 +31,7 @@ var checkRoot = function(root) {
   }
 };
 var redirect = function(){
-  debugger;
-  window.location.href = checkRoot(location.hostname) + event.target.attributes[2].value + '.html';
+    window.location.href = checkRoot(location.hostname) + event.target.attributes[2].value + '.html';
 };
 
 // Document ready function
