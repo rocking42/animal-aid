@@ -6,7 +6,6 @@
   cursor: pointer;
 }
 
-
 /*//  HOVERS*/
 
 .donBut:hover {
@@ -156,99 +155,75 @@
 #animal_1 {
   background-image: url("../images/backgroundImages/rhino.png");
 }
-
 #animal_2 {
   background-image: url("../images/backgroundImages/giraffe.png");
 }
-
 #animal_3 {
   background-image: url("../images/backgroundImages/lion.png");
 }
-
 #animal_4 {
   background-image: url("../images/backgroundImages/hippo.png");
 }
-
 #animal_5 {
   background-image: url("../images/backgroundImages/elephant.png");
 }
-
 #animal_6 {
   background-image: url("../images/backgroundImages/tiger.png");
 }
-
 #animal_7 {
   background-image: url("../images/backgroundImages/gorilla.png");
 }
-
 #animal_8 {
   background-image: url("../images/backgroundImages/sloth.png");
 }
-
 #animal_9 {
   background-image: url("../images/backgroundImages/cheetah.png");
 }
-
 #animal_10 {
   background-image: url("../images/backgroundImages/orangutan.png");
 }
-
 #animal_11 {
   background-image: url("../images/backgroundImages/komodo.png");
 }
-
 #animal_12 {
   background-image: url("../images/backgroundImages/tapir.png");
 }
-
 #animal_13 {
   background-image: url("../images/backgroundImages/red.png");
 }
-
 #animal_14 {
   background-image: url("../images/backgroundImages/panda.png");
 }
-
 #animal_15 {
   background-image: url("../images/backgroundImages/snow.png");
 }
-
 #animal_16 {
   background-image: url("../images/backgroundImages/penguin.png");
 }
-
 #animal_17 {
   background-image: url("../images/backgroundImages/polar.png");
 }
-
 #animal_18 {
   background-image: url("../images/backgroundImages/narwhal.png");
 }
-
 #animal_19 {
   background-image: url("../images/backgroundImages/killer.png");
 }
-
 #animal_20 {
   background-image: url("../images/backgroundImages/whale.png");
 }
-
 #animal_21 {
   background-image: url("../images/backgroundImages/shark.png");
 }
-
 #animal_22 {
   background-image: url("../images/backgroundImages/tortoise.png");
 }
-
 #animal_23 {
   background-image: url("../images/backgroundImages/dolphin.png");
 }
-
 #animal_24 {
   background-image: url("../images/backgroundImages/seal.png");
 }
-
 #animal_25 {
   background-image: url("../images/backgroundImages/dugong.png");
 }
