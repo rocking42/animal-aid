@@ -71,7 +71,7 @@ $(document).ready(function() {
 
     $(".redirect").on("click", function(e) {
       exitEffect();
-      var redirecting = window.setTimeout(redirect(), 5000);
+      var redirecting = window.setTimeout(redirect, 5000);
     });
 
     var exitEffect = function () {
