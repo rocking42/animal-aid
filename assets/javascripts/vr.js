@@ -20,22 +20,25 @@ var freezeVideos = function(){
     }
 };
 
-var redirectHome = function(){
-  if (location.hostname === "localhost") {
-    window.location.href = '/index.html';
+var checkRoot = function(root) {
+  if (root == "localhost") {
+    return "/";
   } else {
-    window.location.href = '/animal-aid/index.html';
+    return '/animal-aid/';
   }
+};
+
+var redirectHome = function(){
+  window.location.href = checkRoot(location.hostname) + 'index.html';
 };
 
 var goJungling = function(){
-    if (location.hostname === "localhost") {
-    window.location.href = '/jungle.html';
-  } else {
-    window.location.href = '/animal-aid/jungle.html';
-  }
+  window.location.href = checkRoot(location.hostname) + 'jungle.html';
 };
 
+var redirectOcean = function(){
+  window.location.href = checkRoot(location.hostname) + 'ocean.html';
+};
 $(document).ready(function() {
     initialize();
     freezeVideos();
@@ -91,14 +94,18 @@ $(document).ready(function() {
       var floor = document.querySelector(".floor");
       floor.attributes[5].value="0 5 0";
       window.setTimeout(function() {
-        cam.removeAttribute("universal-controls");
-        cam.setAttribute('rotation', "73 -33 0");
+        userCam.removeAttribute("universal-controls");
+        userCam.setAttribute('rotation', "73 -33 0");
       }, 1000);
     };
 
     // after saving them into variable sand loading the assets, delete the nodes off of the scene
     var myInterval = window.setInterval(function() {
         if (scene.hasLoaded) {
+            var ground = document.querySelector(".ground");
+            if (ground) {
+                ground.pause();
+            }
             for (var key in animals) {
                 removeAnimal(animals[key]);
             }

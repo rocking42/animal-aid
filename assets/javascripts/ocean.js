@@ -74,10 +74,6 @@ $(document).ready(function() {
         }
     };
 
-    $(".playDolphin").on("click", playEvent );
-    $(".playPenguin").on("click", playEvent );
-    $(".playOrca").on("click", playEvent );
-    $(".playShark").on("click", playEvent );
     $(".play").on("click", playEvent );
 
     //  EVENT LISTENERS FOR PLATFORMS
