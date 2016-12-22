@@ -6,7 +6,6 @@
   cursor: pointer;
 }
 
-
 /*//  HOVERS*/
 
 .donBut:hover {
@@ -66,7 +65,7 @@
 .cartDiv {
   position: fixed;
   z-index: 9999;
-  right: 12vh;
+  right: 2vw;
   top: 6vh;
   border: 3px solid ghostwhite;
   height: 70px;
@@ -79,7 +78,7 @@
   cursor: pointer;
 }
 
-.donBut {
+/*.donBut {
   right: 17vh;
   top: 3vh;
   border: 3px solid ghostwhite;
@@ -89,15 +88,23 @@
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   line-height: 65px;
-}
+}*/
 
 .cartDiv:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* ANIMAL PAGES */
 
-/*// ANIMAL IMAGE SIZE*/
+.infoBut {
+  top: 43vh;
+  left: 2vw;
+}
 
+.vidBut {
+  top: 53vh;
+  left: 2vw;
+}
 
 /* ANIMAL PAGES */
 
@@ -112,19 +119,6 @@
   position: relative;
 }
 
-.infoBut {
-  top: 43vh;
-  left: 2vw;
-}
-
-.vidBut {
-  top: 53vh;
-  left: 2vw;
-}
-
-
-/*// 3D SELECT PAGE*/
-
 #parallaxPage {
   background: url("../parallax-master/examples/simple.html");
   height: 100vh;
@@ -132,123 +126,80 @@
   margin-left: 0;
 }
 
-#landSelect {
-  /*background: url(landselect.png);*/
-  height: 100vh;
-  width: 50%;
-  margin-left: 0;
-}
-
-#oceanSelect {
-  /*background: url(oceanselect.png);*/
-  height: 100vh;
-  width: 50%;
-  margin-left: 0;
-}
-
-#oceanSelect:hover, #landSelect:hover {
-  cursor: pointer;
-}
-
-
 /*// ANIMAL PAGES*/
 
 #animal_1 {
   background-image: url("../images/backgroundImages/rhino.png");
 }
-
 #animal_2 {
   background-image: url("../images/backgroundImages/giraffe.png");
 }
-
 #animal_3 {
   background-image: url("../images/backgroundImages/lion.png");
 }
-
 #animal_4 {
   background-image: url("../images/backgroundImages/hippo.png");
 }
-
 #animal_5 {
   background-image: url("../images/backgroundImages/elephant.png");
 }
-
 #animal_6 {
   background-image: url("../images/backgroundImages/tiger.png");
 }
-
 #animal_7 {
   background-image: url("../images/backgroundImages/gorilla.png");
 }
-
 #animal_8 {
   background-image: url("../images/backgroundImages/sloth.png");
 }
-
 #animal_9 {
   background-image: url("../images/backgroundImages/cheetah.png");
 }
-
 #animal_10 {
   background-image: url("../images/backgroundImages/orangutan.png");
 }
-
 #animal_11 {
   background-image: url("../images/backgroundImages/komodo.png");
 }
-
 #animal_12 {
   background-image: url("../images/backgroundImages/tapir.png");
 }
-
 #animal_13 {
   background-image: url("../images/backgroundImages/red.png");
 }
-
 #animal_14 {
   background-image: url("../images/backgroundImages/panda.png");
 }
-
 #animal_15 {
   background-image: url("../images/backgroundImages/snow.png");
 }
-
 #animal_16 {
   background-image: url("../images/backgroundImages/penguin.png");
 }
-
 #animal_17 {
   background-image: url("../images/backgroundImages/polar.png");
 }
-
 #animal_18 {
   background-image: url("../images/backgroundImages/narwhal.png");
 }
-
 #animal_19 {
   background-image: url("../images/backgroundImages/killer.png");
 }
-
 #animal_20 {
   background-image: url("../images/backgroundImages/whale.png");
 }
-
 #animal_21 {
   background-image: url("../images/backgroundImages/shark.png");
 }
-
 #animal_22 {
   background-image: url("../images/backgroundImages/tortoise.png");
 }
-
 #animal_23 {
   background-image: url("../images/backgroundImages/dolphin.png");
 }
-
 #animal_24 {
   background-image: url("../images/backgroundImages/seal.png");
 }
-
 #animal_25 {
   background-image: url("../images/backgroundImages/dugong.png");
 }
