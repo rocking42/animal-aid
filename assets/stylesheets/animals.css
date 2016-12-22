@@ -34,12 +34,7 @@
 
 .downBut {
   right: 2vw;
-  top: 56vh;
-}
-
-.cubeBut {
-  right: 1vw;
-  top: 46vh;
+  bottom: 36vh;
 }
 
 
@@ -66,7 +61,7 @@
   position: fixed;
   z-index: 9999;
   right: 2vw;
-  top: 6vh;
+  top: 4vh;
   border: 3px solid ghostwhite;
   height: 70px;
   width: 140px;
@@ -103,12 +98,12 @@
 /* ANIMAL PAGES */
 
 .infoBut {
-  top: 43vh;
+  top: 42vh;
   left: 2vw;
 }
 
 .vidBut {
-  top: 53vh;
+  bottom: 41vh;
   left: 2vw;
 }
 
@@ -120,92 +115,92 @@
   background-position-x: center !important;
   height: 100%;
   width: 100%;
-  background: #55e6c5;
+  background: #black;
   z-index: 1;
   position: relative;
 }
 
-#parallaxPage {
+/*#parallaxPage {
   background: url("../parallax-master/examples/simple.html");
   height: 100vh;
   width: 100%;
   margin-left: 0;
-}
+}*/
 
 /*// ANIMAL PAGES*/
 
 #animal_1 {
-  background-image: url("../images/backgroundImages/rhino.png");
+  background-image: url("../images/backgroundImages/rhino.jpg");
 }
 #animal_2 {
-  background-image: url("../images/backgroundImages/giraffe.png");
+  background-image: url("../images/backgroundImages/giraffe.jpg");
 }
 #animal_3 {
-  background-image: url("../images/backgroundImages/lion.png");
+  background-image: url("../images/backgroundImages/lion.jpg");
 }
 #animal_4 {
-  background-image: url("../images/backgroundImages/hippo.png");
+  background-image: url("../images/backgroundImages/hippo.jpg");
 }
 #animal_5 {
-  background-image: url("../images/backgroundImages/elephant.png");
+  background-image: url("../images/backgroundImages/elephant.jpg");
 }
 #animal_6 {
-  background-image: url("../images/backgroundImages/tiger.png");
+  background-image: url("../images/backgroundImages/tiger.jpg");
 }
 #animal_7 {
-  background-image: url("../images/backgroundImages/gorilla.png");
+  background-image: url("../images/backgroundImages/gorilla.jpg");
 }
 #animal_8 {
-  background-image: url("../images/backgroundImages/sloth.png");
+  background-image: url("../images/backgroundImages/sloth.jpg");
 }
 #animal_9 {
-  background-image: url("../images/backgroundImages/cheetah.png");
+  background-image: url("../images/backgroundImages/cheetah.jpg");
 }
 #animal_10 {
-  background-image: url("../images/backgroundImages/orangutan.png");
+  background-image: url("../images/backgroundImages/orangutan.jpg");
 }
 #animal_11 {
-  background-image: url("../images/backgroundImages/komodo.png");
+  background-image: url("../images/backgroundImages/komodo.jpg");
 }
 #animal_12 {
-  background-image: url("../images/backgroundImages/tapir.png");
+  background-image: url("../images/backgroundImages/tapir.jpg");
 }
 #animal_13 {
-  background-image: url("../images/backgroundImages/red.png");
+  background-image: url("../images/backgroundImages/red.jpg");
 }
 #animal_14 {
-  background-image: url("../images/backgroundImages/panda.png");
+  background-image: url("../images/backgroundImages/panda.jpg");
 }
 #animal_15 {
-  background-image: url("../images/backgroundImages/snow.png");
+  background-image: url("../images/backgroundImages/snow.jpg");
 }
 #animal_16 {
-  background-image: url("../images/backgroundImages/penguin.png");
+  background-image: url("../images/backgroundImages/penguin.jpg");
 }
 #animal_17 {
-  background-image: url("../images/backgroundImages/polar.png");
+  background-image: url("../images/backgroundImages/polar.jpg");
 }
 #animal_18 {
-  background-image: url("../images/backgroundImages/narwhal.png");
+  background-image: url("../images/backgroundImages/narwhal.jpg");
 }
 #animal_19 {
-  background-image: url("../images/backgroundImages/killer.png");
+  background-image: url("../images/backgroundImages/killer.jpg");
 }
 #animal_20 {
-  background-image: url("../images/backgroundImages/whale.png");
+  background-image: url("../images/backgroundImages/whale.jpg");
 }
 #animal_21 {
-  background-image: url("../images/backgroundImages/shark.png");
+  background-image: url("../images/backgroundImages/shark.jpg");
 }
 #animal_22 {
-  background-image: url("../images/backgroundImages/tortoise.png");
+  background-image: url("../images/backgroundImages/tortoise.jpg");
 }
 #animal_23 {
-  background-image: url("../images/backgroundImages/dolphin.png");
+  background-image: url("../images/backgroundImages/dolphin.jpg");
 }
 #animal_24 {
-  background-image: url("../images/backgroundImages/seal.png");
+  background-image: url("../images/backgroundImages/seal.jpg");
 }
 #animal_25 {
-  background-image: url("../images/backgroundImages/dugong.png");
+  background-image: url("../images/backgroundImages/dugong.jpg");
 }

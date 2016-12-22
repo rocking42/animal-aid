@@ -63,7 +63,7 @@
   /*border: 10px solid white;*/
   height: 30%;
   width: 50%;
-  background-image: url("../images/backgroundImages/AnimalAidHeader.png");
+  background-image: url("../images/backgroundImages/AnimalAidHeaderShadow.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -73,7 +73,7 @@
   z-index: 100000000000;
   left:50%;
   top: 45%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -35%);
   font-family: 'Montserrat', sans-serif;
 }
 
