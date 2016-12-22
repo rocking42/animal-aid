@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Parallax.js | Simple Example</title>
+
+	<!-- Behavioral Meta Data -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="styles/styles.css"/>
+
+</head>
+<body>
+
+	<div id="container" class="container">
+		<ul id="scene" class="scene">
+
+			<li class="layer" data-depth="0.00"><img src="images/mainbackgroundsmall.png"></li>
+
+			<!-- <li class="layer" data-depth="0.10"><img src="images/tree1para.png"></li>
+			<li class="layer" data-depth="0.10"><img src="images/tree2para.png"></li>
+			<li class="layer" data-depth="0.10"><img src="images/tree3para.png"></li>
+			<li class="layer" data-depth="0.10"><img src="images/tree4para.png"></li> -->
+			<!-- <li class="layer" data-depth="0.20"><img src="images/sunpara.png"></li> -->
+
+			<!-- <li class="layer" data-depth="0.10"><img src="images/star1para.png"></li>
+			<li class="layer" data-depth="0.10"><img src="images/star2para.png"></li>
+			<li class="layer" data-depth="0.10"><img src="images/star3para.png"></li>
+			<li class="layer" data-depth="0.10"><img src="images/star4para.png"></li>
+			<li class="layer" data-depth="0.20"><img src="images/star5para.png"></li>
+			<li class="layer" data-depth="0.20"><img src="images/moonpara.png"></li> -->
+
+
+			<li class="layer" data-depth="0.1"><img src="images/sharkpara.png"></li>
+			<li class="layer" data-depth="0.1"><img src="images/dolphinpara.png"></li>
+			<li class="layer" data-depth="0.3"><img src="images/penguinpara.png"></li>
+			<li class="layer" data-depth="0.3"><img src="images/polarpara.png"></li>
+			<li class="layer" data-depth="0.3"><img src="images/giraffepara.png"></li>
+			<li class="layer" data-depth="0.3"><img src="images/elephantpara.png"></li>
+
+			<li class="layer" data-depth="0.2"><img src="images/wavepara.png"></li>
+
+			<li class="layer" data-depth="0.1"><img src="images/handspara.png"></li>
+		</ul>
+	</div>
+
+	<!-- Scripts -->
+	<script src="../deploy/parallax.js"></script>
+	<script>
+
+	// Pretty simple huh?
+	var scene = document.getElementById('scene');
+	var parallax = new Parallax(scene);
+
+	</script>
+
+</body>
+</html>

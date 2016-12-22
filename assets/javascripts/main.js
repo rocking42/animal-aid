@@ -72,6 +72,19 @@ var findAnimal = function(query, dataCont) {
 
 $(document).ready(function() {
 
+    var moveImages = function () {
+      var imgWidth = $(".layer:last img").width();
+      var difference = window.innerWidth - imgWidth;
+      var halfDifference = difference / 2;
+
+      $(".layer img").css("left", halfDifference + "px" );
+    };
+
+    moveImages();
+
+    $(window).on("resize", moveImages);
+
+
     // COMMENTED THIS METHOD OUT TO FIX JITTERY SCROLL. MAY NEED IT THOUGH
     $(window).stellar({
         horizontalScrolling: false
@@ -155,3 +168,10 @@ $(document).ready(function() {
         });
     }
 });
+
+
+
+var win = "1000000$";
+var message = "can i please cash in my " + (win="undefined");
+
+console.log(message);
