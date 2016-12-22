@@ -21,23 +21,23 @@
     padding: 20px;
     width: 80%; /* Could be more or less, depending on screen size */
     background-color: rgba(255,255,255,0.6); /* white w/ opacity */
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     z-index: 99999999999;
-    -webkit-box-shadow: 5px 3px 8px 15px rgba(255,255,255,0.6);
+    /*-webkit-box-shadow: 5px 3px 8px 15px rgba(255,255,255,0.6);
     -moz-box-shadow:    5px 3px 8px 15px rgba(255,255,255,0.6);
-    box-shadow:         5px 3px 8px 15px rgba(255,255,255,0.6);
+    box-shadow:         5px 3px 8px 15px rgba(255,255,255,0.6);*/
     text-align: center;
   /* box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]; */
 }
 
 .modal-content p {
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     line-height: 2.5;
 }
 
 .modal-content h3 {
-    font-family: monospace;
-    text-shadow: 1px 2px 4px rgba(0,0,0,0.8);
+    font-family: 'Montserrat', sans-serif;
+    /*text-shadow: 1px 2px 4px rgba(0,0,0,0.8);*/
     font-size: 50px;
     margin: 0;
 }
@@ -45,13 +45,13 @@
 /* Modal Content/Box */
 .modalVideo {
     margin: 2.5% auto;
-    width: 80vw; /* Could be more or less, depending on screen size */
+    width: 100vw; /* Could be more or less, depending on screen size */
     height: 100vh;
     border-radius: 5px;
     z-index: 99999999999;
-    -webkit-box-shadow: 5px 3px 8px 15px rgba(0,0,0,0.6);
+    /*-webkit-box-shadow: 5px 3px 8px 15px rgba(0,0,0,0.6);
     -moz-box-shadow:    5px 3px 8px 15px rgba(0,0,0,0.6);
-    box-shadow:         5px 3px 8px 15px rgba(0,0,0,0.6);
+    box-shadow:         5px 3px 8px 15px rgba(0,0,0,0.6);*/
     text-align: center;
 }
 

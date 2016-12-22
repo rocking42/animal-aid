@@ -92,8 +92,8 @@ $(document).ready(function() {
 
     $(window).on("resize", centreImages);
 
-    // MOVING
-    // SUN
+    // MOVING SUN
+
     var movingSun = function() {
         $(".sun").css({
             position: "absolute",
@@ -118,7 +118,7 @@ $(document).ready(function() {
 
     movingSun();
 
-    // MOON
+    // MOVING MOON
 
     var movingMoon = function() {
         $(".moon").css({
@@ -144,34 +144,8 @@ $(document).ready(function() {
 
     movingMoon();
 
-    // ALL
 
-    // var movingAll = function () {
-    // $(".move").css({
-    //   position: "absolute",
-    //   top: 0,
-    //   left: 0
-    // });
-
-    // var animateAll = function () {
-    //   $(".move").animate({
-    //     top: "500px"
-    //   }, 1000, function () {
-    //     $(".move").animate({
-    //       top: "0"
-    //     }, 1000, function () {
-    //       animateAll();
-    //     });
-    //   });
-    // };
-    //
-    // animateAll();
-    // };
-
-    // movingAll();
-
-
-    // COMMENTED THIS METHOD OUT TO FIX JITTERY SCROLL. MAY NEED IT THOUGH
+    // Stellar Scroll
     $(window).stellar({
         horizontalScrolling: false
     });
