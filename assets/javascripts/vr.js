@@ -31,7 +31,6 @@ var checkRoot = function(root) {
   }
 };
 var redirect = function(event){
-    debugger;
     window.location.href = checkRoot(location.hostname) + event.target.attributes[2].value + '.html';
 };
 
