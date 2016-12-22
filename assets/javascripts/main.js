@@ -215,20 +215,20 @@ $(document).ready(function() {
 
     // Links to virtual worlds
     $(".dropBut").on("click", function() {
-        if (window.location.host === "localhost") {
-            window.location.href = '/ocean.html';
-        } else {
-            window.location.href = '/animal-aid/ocean.html';
-        }
-    });
+    if (window.location.host === "localhost") {
+        window.location.href = '/ocean.html';
+    } else {
+        window.location.href = '/animal-aid/ocean.html';
+    }
+});
 
-    $(".treeBut").on("click", function() {
-        if (window.location.hostname === "localhost") {
-            window.location.href = '/jungle.html';
-        } else {
-            window.location.href = '/animal-aid/jungle.html';
-        }
-    });
+$(".treeBut").on("click", function() {
+    if (window.location.hostname === "localhost") {
+        window.location.href = '/jungle.html';
+    } else {
+        window.location.href = '/animal-aid/jungle.html';
+    }
+});
 
 
     $(".scrollIndex").on("click", function(e) {

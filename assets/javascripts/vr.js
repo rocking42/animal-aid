@@ -1,3 +1,5 @@
+// on load, create the animals Obj containing all the videos and controls in the page for each animal
+
 var animals = {};
 
 var initialize = function () {
@@ -12,7 +14,8 @@ var initialize = function () {
       };
   }
 };
-// Iterates through all videos and pause them (cant override autoplay)
+
+// Iterates through all videos and pause them
 var freezeVideos = function(){
     var videos = document.querySelectorAll("video");
     for (var i = 0 ; i < videos.length ; i += 1) {
@@ -20,6 +23,8 @@ var freezeVideos = function(){
     }
 };
 
+//  checks if the site is loaded on a localhost or off site and adjusts the page links
+  // lines 28 - 46
 var checkRoot = function(root) {
   if (root == "localhost") {
     return "/";
@@ -28,65 +33,49 @@ var checkRoot = function(root) {
   }
 };
 
-var redirectHome = function(){
-  window.location.href = checkRoot(location.hostname) + 'index.html';
+var redirect = function(){
+  window.location.href = checkRoot(location.hostname) + event.target.attributes[2] + '.html';
 };
 
-var goJungling = function(){
-  window.location.href = checkRoot(location.hostname) + 'jungle.html';
-};
-
-var redirectOcean = function(){
-  window.location.href = checkRoot(location.hostname) + 'ocean.html';
-};
+// Document ready function
 $(document).ready(function() {
-    initialize();
-    freezeVideos();
+    initialize(); // run initialize the animals Obj once page has finished loading
+    freezeVideos(); // stops all video's autoplay
 
-    // once the scene has loaded find all videos, controllers and scene and save them into variables
-    var scene = document.querySelector("a-scene");
-    var userCam = document.querySelector("#userCam");
+    var scene = document.querySelector("a-scene"); //save the scene into a var (for element appendings)
+    var userCam = document.querySelector("#userCam"); // save the user camera view coords to adjust entrance and exit callback functions
 
+    // when called on animals.animal, removes specified animal's video and controllers off the scene
     var removeAnimal = function(animal) {
             animal["show"].removeFromParent();
             animal["play"].removeFromParent();
             animal["isOn"] = false;
     };
 
+
     var playEvent = function (event) {
-        freezeVideos();
-        for (var key in animals) {
+      // when an event is triggers:
+        freezeVideos(); // freeze all playing videos
+        for (var key in animals) { // iterate through the objects on the scene and:
             var animal = animals[key];
-            if (event.target.classList.contains(animal.name) && animal.isOn === false) {
+            if (event.target.classList.contains(animal.name) && animal.isOn === false) { // if the animal's cylinder is the one used to trigger, and it isnt already playing, turn it on
                 animal["show"].addToParent("scene");
                 animal["play"].addToParent("scene");
-                var $playVideo = $("#play"+animal["name"]).find("a-image");
-                $playVideo.trigger("click");
+                var $playVideo = $("#play"+animal["name"]).find("a-image"); // find the controller's 'play' button and:
+                $playVideo.trigger("click"); // trigger a click event on it
                 animal["isOn"] = true;
-            } else if (animal.isOn ){
+            } else if (animal.isOn ){ // if it's another animal and not the triggering one, or the triggering animal is already turned on, turn it off.
                 removeAnimal(animal);
             }
         }
     };
 
+    // add event listener to all video linked cylinders
     $(".play").on("click", playEvent );
 
-    //  EVENT LISTENERS FOR PLATFORMS
-        // If selected video is playing and clicked again, shut it down
-            // OTHERWISE get rid of the rest of the videos on scene and launch the current video
-    $(".goHome").on("click", function() {
-        exitEffect();
-        var goingHome = window.setTimeout(redirectHome, 5000);
-    });
-
-    $(".goJungling").on("click", function() {
-        exitEffect();
-        var goingJungling = window.setTimeout(goJungling, 5000);
-    });
-
-    $(".ocean").on("click", function() {
-        exitEffect();
-        var goingSwimming = window.setTimeout(redirectOcean, 5000);
+    $(".redirect").on("click", function(e) {
+      exitEffect();
+      var redirecting = window.setTimeout(redirect(), 5000);
     });
 
     var exitEffect = function () {
