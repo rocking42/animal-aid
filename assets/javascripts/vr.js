@@ -60,7 +60,7 @@ $(document).ready(function() {
             if (event.target.classList.contains(animal.name) && animal.isOn === false) {
                 animal["show"].addToParent("scene");
                 animal["play"].addToParent("scene");
-                var $playVideo = $("#"+animal.name).find("a-image");
+                var $playVideo = $("#play"+animal["name"]).find("a-image");
                 $playVideo.trigger("click");
                 animal["isOn"] = true;
             } else if (animal.isOn ){
