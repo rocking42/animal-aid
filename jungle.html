@@ -16,9 +16,25 @@
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
     <script src="assets/javascripts/aframe-video-controls.js" charset="utf-8"></script>
     <script src="assets/javascripts/vr.js"></script>
+    <link rel="stylesheet" href="assets/stylesheets/loading.css">
 
   </head>
   <body>
+    <svg height="400" width="400" id="preloader">
+    <g filter="url(#goo)">
+      <circle class="outer" cx="200" cy="200" r="150" />
+      <circle class="drop" cx="200" cy="200" r="15">
+    </g>
+
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+
+      </filter>
+    </defs>
+    </svg>
+
     <a-scene physics>
       <!-- PRELOAD ASSETS -->
       <a-assets>
