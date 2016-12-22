@@ -27,9 +27,11 @@
 	<link rel="stylesheet" href="assets/stylesheets/style.css">
 	<link rel="stylesheet" href="assets/stylesheets/animals.css">
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" href="assets/stylesheets/modal.css">
 	<!--  -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" charset="utf-8"></script>
 	<script src="assets/javascripts/jquery.stellar.js"></script>
 	<script src="assets/javascripts/jquery.nicescroll.js"></script>
 	<script src="assets/javascripts/main.js"></script>
@@ -110,12 +112,25 @@
 			</div>
 		</div>
 
+		<!-- <div id="choose3dWorld" class="animalImage" data-stellar-background-ratio="0.4"  >
+	    <div class="row">
+	      <div id="landSelect" class="one-half column animalImage" data-stellar-background-ratio="0.4">
+	        <h1>Welcome To The Jungle In 3D!</h1>
+	      </div>
+	      <div id="oceanSelect" class="one-half column animalImage" data-stellar-background-ratio="0.4">
+	        <h1>Under The Sea In 3D!</h1>
+	      </div>
+	    </div>
+	  </div> -->
+
+		<div class="detailModal"></div>
+
 		<div id="animal_1" class="animalImage" data-stellar-background-ratio="0.4">
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Rhino" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Rhino" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -124,8 +139,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Giraffe" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Giraffe" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -134,8 +149,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Lion" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Lion" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -144,8 +159,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Hippopotamus" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Hippopotamus" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -154,8 +169,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Elephant" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Elephant" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -164,8 +179,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Tiger" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Tiger" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -174,8 +189,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Gorilla" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Gorilla" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -184,8 +199,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Sloth" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Sloth" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -194,8 +209,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Cheetah" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Cheetah" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -204,8 +219,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Orangutan" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Orangutan" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -214,8 +229,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Komodo-Dragon" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Komodo-Dragon" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -224,8 +239,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Tapir" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Tapir" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -234,8 +249,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Red-Panda" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Red-Panda" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -244,8 +259,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Panda" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Panda" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -254,8 +269,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Snow-Leopard" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Snow-Leopard" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -264,8 +279,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Penguin" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Penguin" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -274,8 +289,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Polar-Bear" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Polar-Bear" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -284,8 +299,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Narwhal" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Narwhal" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -294,8 +309,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Orca" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Orca" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -304,8 +319,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Blue-Whale" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Blue-Whale" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -314,8 +329,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Great-White-Shark" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Great-White-Shark" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -324,8 +339,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Galapagos Tortoise" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Galapagos Tortoise" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -334,8 +349,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Dolphin" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Dolphin" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -344,8 +359,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Sea-Lion" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Sea-Lion" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -354,8 +369,8 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="donBut">Donate</div>
-					<i class="fa fa-info-circle fa-4x infoBut" aria-hidden="true"></i>
-					<i class="fa fa-video-camera fa-4x vidBut" aria-hidden="true"></i>
+					<i class="fa fa-info-circle fa-4x infoBut" data-type="Dugong" aria-hidden="true"></i>
+					<i class="fa fa-video-camera fa-4x vidBut" data-type="Dugong" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>
@@ -375,6 +390,28 @@
 		<!-- End Document
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	</div>
+
+
+	<script type="html/template" charset="utf-8" id="modal1">
+  <div id="myModalText" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p><%= name %></p>
+      <p><%= description %></p>
+    </div>
+  </div>
+  </script>
+
+  <script type="html/template" id="modal2" data-type="video">
+    <div id="myModalVid" class="modal">
+      <!-- Modal content -->
+      <div class="modalVideo">
+        <span class="close">&times;</span>
+        <iframe class="animalMovie" width="90%" height="90%" src="<%= vidURL %>" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </script>
 
 </body>
 
