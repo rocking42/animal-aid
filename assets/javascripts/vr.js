@@ -62,7 +62,6 @@ $(document).ready(function() {
                 animal["play"].addToParent("scene");
                 var $playVideo = $("#"+animal.name).find("a-image");
                 $playVideo.trigger("click");
-                debugger;
                 animal["isOn"] = true;
             } else if (animal.isOn ){
                 removeAnimal(animal);
