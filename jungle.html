@@ -54,8 +54,10 @@
       <!-- SURROUNDINGS -->
       <a-sky src="#rainforest" rotation="0 -130 0"></a-sky>
       <!-- TERRAIN -->
+      <!-- FLOOR -->
       <a-ocean width="161" depth="161" density="110" opacity="1" position="0 0.2 0" color="0099399.00"></a-ocean>
       <a-box class="floor" width="161" depth="161" opacity="0.05" static-body position="0 -0.4 0" color="1049759.00"></a-box>
+      <!-- TREES -->
       <a-entity collada-model="#tree" scale="1 1 1" position="-14.40 0 -2.17" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="13.63 0 15.64" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="-5.05 0 -18.81" ></a-entity>
@@ -63,52 +65,58 @@
       <a-entity collada-model="#tree" scale="1 1 1" position="19.18 0 -2.32" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="8.83 0 4.95" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="-16.72 0 10.21" ></a-entity>
+      <!-- THAT'S A NICE BOULDER -->
       <a-entity collada-model="#rock" scale="20 20 20" position="-2.34 -3.00 27.19" rotation="-1.74 -2.86 18.91 "></a-entity>
       <!-- ANIMALS -->
+      <!-- ELEPHANTS -->
       <a-entity animation__yoyo="property: position; dir: alternate; dur: 500;
                                 easing: easeInSine; loop: true; to: 0 0.1 0">
           <a-entity alongpath="path:34.15,-3.28,-78.72 2.20,-3.63,-38.26 -16.80,-1.65,-21.29 -59.49,-1.28,-12.96 -125.86,-1.60,2.98; closed:false; loop:true; dur:30000; delay:4000; inspector:false;" collada-model="#elephant" rotation="-1.15 -60.73 0" position="34.15 -3.28 -78.72" scale="2 2 2" ></a-entity>
       </a-entity>
-
       <a-entity animation__yoyo="property: position; dir: alternate; dur: 500;easing: easeInSine; loop: true; to: 0 0.1 0">
           <a-entity collada-model="#elephant" rotation="-1.15 -60.73 0"
                     position="34.15 -3.28 -78.72" scale="1 1 1"
                     alongpath="path:30.15,-3.28,-70.72 4.20,-2.63,-30.26 -12.80,-0.65,-15.29 -50.49,-0.28,-18.96 -134.86,-1.60,5.98; closed:false; loop:true; dur:30000; delay:4000; inspector:false;">
           </a-entity>
       </a-entity>
+      <!-- GORILLA -->
       <a-entity collada-model="#gorilla" scale="2 2 2" rotation="0 179.91 -15" position="1.78 2.7 11.77"
                   animation__rotate="property: rotation; dur: 1000;
                                                easing: linear; loop: true; to: 0 179.91 15; dir: alternate;"
                  animation__yoyo="property: position; dir: alternate; dur: 500;
                                   easing: easeInSine; loop: true; to: 1.78 3.7 11.77">
       </a-entity>
+      <!-- CHEETAH -->
       <a-entity collada-model="#cheetah" scale="2 2 2" rotation="0 0 0" position="-5 0 0" ></a-entity>
+      <!-- TAPIR -->
       <a-entity collada-model="#tapir" rotation="0 0 0" position="-7 0 0" ></a-entity>
-      <a-box id="rhinoBox" width="7" depth="7" height="7" color="blue" class="clickable" scale="0.35 0.3 0.21" opacity="0" rotation="10.31 179.34 -97.40" position="14.43 1.22 -10.13">
-      </a-box>
+      <!-- RHINO -->
       <a-entity collada-model="#rhino" rotation="0 -115.74 0" position="13.30 0.35 -10.47" scale="3 3 3" ></a-entity>
-
+      <!-- PANDA -->
       <a-entity collada-model="#panda" scale="2 2 2" rotation="-63.03 158.14 -169.60" position="-13.55 4.92 -3.26"
                 animation__rotate="property: rotation; dur: 1000;
                                    easing: linear; loop: true;
                                    to: -30.03 158.14 -169.60; dir: alternate;">
       </a-entity>
       <!-- VIDEOS -->
+      <!-- RHINO-VIDEO -->
       <a-video src="#rhinoVid" id="showRhino" class="clickable" width="16" height="9" position="15.97 12.66 -17.94" rotation="0 -50.99 -0.57" scale="2.19 1.94 1">
       </a-video>
-      <a-video src="#gorillaVid" id="showGorilla" class="clickable" scale="1.5 1.4 1.1" width="16" height="9" position="0.75 13.72 15.53" rotation="14.32 -163.87 0.57"></a-video>
-      <a-video src="#pandaVid" id="showPanda" class="clickable" scale="1.5 1.4 1.1" width="16" height="9" position="-15.99 13.72 0.20" rotation="14.32 111.73 0.57"></a-video>
-      <a-video src="#elephantVid" id="showElephant" class="clickable" scale="1.5 1.4 1.1" width="16" height="9" position="-15.99 11.77 -15.19" rotation="20.05 71.05 0.00"></a-video>
-      <!-- VIDEO CONTROLS -->
       <a-entity id="playRhino" position="8.77 -4.52 -1.74" rotation="0 -49.27 0" scale="4 4 4">
         <a-entity id="rhinoControl" play="false" class="clickable" video-controls="src:#rhinoVid; textColor:black" ></a-entity>
       </a-entity>
+      <!-- GORILLA-VIDEO -->
+      <a-video src="#gorillaVid" id="showGorilla" class="clickable" scale="1.5 1.4 1.1" width="16" height="9" position="0.75 13.72 15.53" rotation="14.32 -163.87 0.57"></a-video>
       <a-entity id="playGorilla" position="1.79 21.32 18.22" rotation="-13.18 0.57 -174.75" scale="10.89 7.43 4">
         <a-entity id="gorillaControl" play="false" class="clickable" video-controls="src:#gorillaVid; textColor:black" ></a-entity>
       </a-entity>
+      <!-- PANDA-VIDEO -->
+      <a-video src="#pandaVid" id="showPanda" class="clickable" scale="1.5 1.4 1.1" width="16" height="9" position="-15.99 13.72 0.20" rotation="14.32 111.73 0.57"></a-video>
       <a-entity id="playPanda" position="-21.14 22.10 5.67" rotation="-11.46 -63.03 179.34" scale="10.89 7.43 4">
         <a-entity id="pandaControl" play="false" class="clickable" video-controls="src:#pandaVid; textColor:black" ></a-entity>
       </a-entity>
+      <!-- ELEPHANT-VIDEO -->
+      <a-video src="#elephantVid" id="showElephant" class="clickable" scale="1.5 1.4 1.1" width="16" height="9" position="-15.99 11.77 -15.19" rotation="20.05 71.05 0.00"></a-video>
       <a-entity id="playElephant" position="-24.16 20.11 -14.4" rotation="-8.59 -99.69 178.76" scale="10.89 7.43 4">
         <a-entity id="elephantControl" play="false" class="clickable" video-controls="src:#elephantVid; textColor:black" ></a-entity>
       </a-entity>
@@ -119,7 +127,6 @@
       <a-cylinder class="clickable play Elephant" checkpoint radius="1" height="1" position="-7.87 0 -8.6" src="#elephantIcon"></a-cylinder>
       <a-cylinder class="clickable goHome" checkpoint radius="1" height="1" position="0.85 0 -3.34" src="#homeIcon"></a-cylinder>
       <a-cylinder class="clickable ocean" checkpoint radius="1" height="1" position="3.85 0 -6.34" color="aqua"></a-cylinder>
-      <!-- LINKS -->
 
     </a-scene>
 
