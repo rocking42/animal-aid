@@ -58,6 +58,8 @@ $(document).ready(function() {
         for (var key in animals) {
             var animal = animals[key];
             if (event.target.classList.contains(animal.name) && animal.isOn === false) {
+                vid = document.querySelector("video");
+                vid.play();
                 animal["show"].addToParent("scene");
                 animal["play"].addToParent("scene");
                 var $playVideo = $("#play"+animal["name"]).find("a-image");
