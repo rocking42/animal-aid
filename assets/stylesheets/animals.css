@@ -66,17 +66,29 @@
 .cartDiv {
   position: fixed;
   z-index: 9999;
-  right: 3vh;
-  top: 3vh;
+  right: 12vh;
+  top: 6vh;
   border: 3px solid ghostwhite;
   height: 70px;
-  width: 70px;
+  width: 140px;
   font-size: 1.5em;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   line-height: 65px;
   color: ghostwhite;
   cursor: pointer;
+}
+
+.donBut {
+  right: 17vh;
+  top: 3vh;
+  border: 3px solid ghostwhite;
+  height: 70px;
+  width: 140px;
+  font-size: 1.5em;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  line-height: 65px;
 }
 
 .cartDiv:hover {
@@ -98,18 +110,6 @@
   background: #55e6c5;
   z-index: 1;
   position: relative;
-}
-
-.donBut {
-  right: 17vh;
-  top: 3vh;
-  border: 3px solid ghostwhite;
-  height: 70px;
-  width: 140px;
-  font-size: 1.5em;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  line-height: 65px;
 }
 
 .infoBut {
