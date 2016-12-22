@@ -66,20 +66,21 @@ $(document).ready(function() {
         }
     };
 
-    // add event listener to all video linked cylinders
+    // add event listener to all video linked cylinders (any animal with video in the VR)
     $(".play").on("click", playEvent );
-
+    // add event listner to the redirect links ( home page / jungle link / ocean link )
     $(".redirect").on("click", function(e) {
       exitEffect();
       var redirecting = window.setTimeout(redirect, 5000);
     });
 
+    // exit effects to simulate free fall out of the world
     var exitEffect = function () {
       var floor = document.querySelector(".floor");
-      floor.attributes[5].value="0 5 0";
+      floor.attributes[5].value="0 5 0"; // basically moves the floor a few increments higher to start the fall
       window.setTimeout(function() {
-        userCam.removeAttribute("universal-controls");
-        userCam.setAttribute('rotation', "73 -33 0");
+        userCam.removeAttribute("universal-controls"); // take the camera controll off of the user and:
+        userCam.setAttribute('rotation', "73 -33 0"); // make it look up towards the sky
       }, 1000);
     };
 
