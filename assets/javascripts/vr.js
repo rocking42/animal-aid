@@ -1,7 +1,5 @@
 // on load, create the animals Obj containing all the videos and controls in the page for each animal
-
 var animals = {};
-
 var initialize = function () {
   var initialize = document.querySelectorAll(".play");
   for (var i = 0 ; i < initialize.length ; i += 1) {
@@ -32,16 +30,15 @@ var checkRoot = function(root) {
     return '/animal-aid/';
   }
 };
-
 var redirect = function(){
-  window.location.href = checkRoot(location.hostname) + event.target.attributes[2] + '.html';
+  debugger;
+  window.location.href = checkRoot(location.hostname) + event.target.attributes[2].value + '.html';
 };
 
 // Document ready function
 $(document).ready(function() {
     initialize(); // run initialize the animals Obj once page has finished loading
     freezeVideos(); // stops all video's autoplay
-
     var scene = document.querySelector("a-scene"); //save the scene into a var (for element appendings)
     var userCam = document.querySelector("#userCam"); // save the user camera view coords to adjust entrance and exit callback functions
 
