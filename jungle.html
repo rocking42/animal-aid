@@ -16,9 +16,25 @@
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
     <script src="assets/javascripts/aframe-video-controls.js" charset="utf-8"></script>
     <script src="assets/javascripts/vr.js"></script>
+    <link rel="stylesheet" href="assets/stylesheets/loading.css">
 
   </head>
   <body>
+    <svg height="400" width="400" id="preloader">
+    <g filter="url(#goo)">
+      <circle class="outer" cx="200" cy="200" r="150" />
+      <circle class="drop" cx="200" cy="200" r="15">
+    </g>
+
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+
+      </filter>
+    </defs>
+    </svg>
+
     <a-scene physics>
       <!-- PRELOAD ASSETS -->
       <a-assets>
@@ -125,8 +141,8 @@
       <a-cylinder class="clickable play Rhino" checkpoint radius="1" height="1" position="1.84 0 -8.75" src="#rhinoIcon"></a-cylinder>
       <a-cylinder class="clickable play Panda" checkpoint radius="1" height="1" position="-3 0 0" src="#pandaIcon"></a-cylinder>
       <a-cylinder class="clickable play Elephant" checkpoint radius="1" height="1" position="-7.87 0 -8.6" src="#elephantIcon"></a-cylinder>
-      <a-cylinder class="clickable goHome" checkpoint radius="1" height="1" position="0.85 0 -3.34" src="#homeIcon"></a-cylinder>
-      <a-cylinder class="clickable ocean" checkpoint radius="1" height="1" position="3.85 0 -6.34" color="aqua"></a-cylinder>
+      <a-cylinder src="#homeIcon" class="clickable redirect" data-type="home" checkpoint radius="1" height="1" position="0.85 0 -3.34"></a-cylinder>
+      <a-cylinder color="aqua" class="clickable redirect" data-type="ocean" checkpoint radius="1" height="1" position="3.85 0 -6.34"></a-cylinder>
 
     </a-scene>
 

@@ -1,5 +1,5 @@
+// on load, create the animals Obj containing all the videos and controls in the page for each animal
 var animals = {};
-
 var initialize = function () {
   var initialize = document.querySelectorAll(".play");
   for (var i = 0 ; i < initialize.length ; i += 1) {
@@ -12,7 +12,8 @@ var initialize = function () {
       };
   }
 };
-// Iterates through all videos and pause them (cant override autoplay)
+
+// Iterates through all videos and pause them
 var freezeVideos = function(){
     var videos = document.querySelectorAll("video");
     for (var i = 0 ; i < videos.length ; i += 1) {
@@ -20,6 +21,8 @@ var freezeVideos = function(){
     }
 };
 
+//  checks if the site is loaded on a localhost or off site and adjusts the page links
+  // lines 28 - 46
 var checkRoot = function(root) {
   if (root == "localhost") {
     return "/";
@@ -27,74 +30,57 @@ var checkRoot = function(root) {
     return '/animal-aid/';
   }
 };
-
-var redirectHome = function(){
-  window.location.href = checkRoot(location.hostname) + 'index.html';
+var redirect = function(){
+    window.location.href = checkRoot(location.hostname) + event.target.attributes[2].value + '.html';
 };
 
-var goJungling = function(){
-  window.location.href = checkRoot(location.hostname) + 'jungle.html';
-};
-
-var redirectOcean = function(){
-  window.location.href = checkRoot(location.hostname) + 'ocean.html';
-};
+// Document ready function
 $(document).ready(function() {
-    initialize();
-    freezeVideos();
+    initialize(); // run initialize the animals Obj once page has finished loading
+    freezeVideos(); // stops all video's autoplay
+    var scene = document.querySelector("a-scene"); //save the scene into a var (for element appendings)
+    var userCam = document.querySelector("#userCam"); // save the user camera view coords to adjust entrance and exit callback functions
 
-    // once the scene has loaded find all videos, controllers and scene and save them into variables
-    var scene = document.querySelector("a-scene");
-    var userCam = document.querySelector("#userCam");
-
+    // when called on animals.animal, removes specified animal's video and controllers off the scene
     var removeAnimal = function(animal) {
             animal["show"].removeFromParent();
             animal["play"].removeFromParent();
             animal["isOn"] = false;
     };
 
+
     var playEvent = function (event) {
-        freezeVideos();
-        for (var key in animals) {
+      // when an event is triggers:
+        freezeVideos(); // freeze all playing videos
+        for (var key in animals) { // iterate through the objects on the scene and:
             var animal = animals[key];
-            if (event.target.classList.contains(animal.name) && animal.isOn === false) {
+            if (event.target.classList.contains(animal.name) && animal.isOn === false) { // if the animal's cylinder is the one used to trigger, and it isnt already playing, turn it on
                 animal["show"].addToParent("scene");
                 animal["play"].addToParent("scene");
-                var $playVideo = $("#play"+animal["name"]).find("a-image");
-                $playVideo.trigger("click");
+                var $playVideo = $("#play"+animal["name"]).find("a-image"); // find the controller's 'play' button and:
+                $playVideo.trigger("click"); // trigger a click event on it
                 animal["isOn"] = true;
-            } else if (animal.isOn ){
+            } else if (animal.isOn ){ // if it's another animal and not the triggering one, or the triggering animal is already turned on, turn it off.
                 removeAnimal(animal);
             }
         }
     };
 
+    // add event listener to all video linked cylinders (any animal with video in the VR)
     $(".play").on("click", playEvent );
-
-    //  EVENT LISTENERS FOR PLATFORMS
-        // If selected video is playing and clicked again, shut it down
-            // OTHERWISE get rid of the rest of the videos on scene and launch the current video
-    $(".goHome").on("click", function() {
-        exitEffect();
-        var goingHome = window.setTimeout(redirectHome, 5000);
+    // add event listner to the redirect links ( home page / jungle link / ocean link )
+    $(".redirect").on("click", function(e) {
+      exitEffect();
+      var redirecting = window.setTimeout(redirect, 5000);
     });
 
-    $(".goJungling").on("click", function() {
-        exitEffect();
-        var goingJungling = window.setTimeout(goJungling, 5000);
-    });
-
-    $(".ocean").on("click", function() {
-        exitEffect();
-        var goingSwimming = window.setTimeout(redirectOcean, 5000);
-    });
-
+    // exit effects to simulate free fall out of the world
     var exitEffect = function () {
       var floor = document.querySelector(".floor");
-      floor.attributes[5].value="0 5 0";
+      floor.attributes[5].value="0 5 0"; // basically moves the floor a few increments higher to start the fall
       window.setTimeout(function() {
-        userCam.removeAttribute("universal-controls");
-        userCam.setAttribute('rotation', "73 -33 0");
+        userCam.removeAttribute("universal-controls"); // take the camera controll off of the user and:
+        userCam.setAttribute('rotation', "73 -33 0"); // make it look up towards the sky
       }, 1000);
     };
 
