@@ -30,16 +30,25 @@ var checkRoot = function(root) {
     return '/animal-aid/';
   }
 };
-var redirect = function(){
+var redirect = function(event){
+    debugger;
     window.location.href = checkRoot(location.hostname) + event.target.attributes[2].value + '.html';
 };
 
 // Document ready function
 $(document).ready(function() {
+
+
     initialize(); // run initialize the animals Obj once page has finished loading
     freezeVideos(); // stops all video's autoplay
+    var $scene = $("a-scene");
+    var $svg = $("svg") // save the loading bar in a var
     var scene = document.querySelector("a-scene"); //save the scene into a var (for element appendings)
-    var userCam = document.querySelector("#userCam"); // save the user camera view coords to adjust entrance and exit callback functions
+    var userCam = document.querySelector("#userCam"); // save the user camera view coords to adjust entrance and exit
+    // Hide the scene until ready
+
+    $scene.hide();
+    // callback functions
 
     // when called on animals.animal, removes specified animal's video and controllers off the scene
     var removeAnimal = function(animal) {
@@ -71,7 +80,7 @@ $(document).ready(function() {
     // add event listner to the redirect links ( home page / jungle link / ocean link )
     $(".redirect").on("click", function(e) {
       exitEffect();
-      var redirecting = window.setTimeout(redirect, 5000);
+      var redirecting = window.setTimeout(redirect, 5000, e);
     });
 
     // exit effects to simulate free fall out of the world
@@ -87,6 +96,8 @@ $(document).ready(function() {
     // after saving them into variable sand loading the assets, delete the nodes off of the scene
     var myInterval = window.setInterval(function() {
         if (scene.hasLoaded) {
+            $svg.hide();
+            $scene.show();
             var ground = document.querySelector(".ground");
             if (ground) {
                 ground.pause();
