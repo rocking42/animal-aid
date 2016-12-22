@@ -236,7 +236,7 @@ movingMoon();
       }
       $('html,body').animate({
           scrollTop: scroll*$window.height()
-      }, scroll*150);
+      }, 800);
     });
 
 
