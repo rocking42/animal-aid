@@ -224,7 +224,24 @@ movingMoon();
         }
     });
 
+
+    $(".scrollIndex").on("click", function(e){
+      e.preventDefault();
+      var $window = $(window);
+      var scroll = parseInt($window.scrollTop()/$window.height());
+      if(e.target.classList.contains("downBut")) {
+        scroll = scroll + 1;
+      } else if(scroll%1 === 0) {
+        scroll = scroll - 1 ;
+      }
+      $('html,body').animate({
+          scrollTop: scroll*$window.height()
+      }, scroll*150);
+    });
+
+
     // Back-To-Top Button
+
 
     if ($('#back-to-top').length) {
         var scrollTrigger = 100, // px
