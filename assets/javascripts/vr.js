@@ -37,7 +37,6 @@ var redirect = function(event){
 // Document ready function
 $(document).ready(function() {
 
-
     initialize(); // run initialize the animals Obj once page has finished loading
     freezeVideos(); // stops all video's autoplay
     var $scene = $("a-scene");
@@ -55,7 +54,6 @@ $(document).ready(function() {
             animal["play"].removeFromParent();
             animal["isOn"] = false;
     };
-
 
     var playEvent = function (event) {
       // when an event is triggers:
