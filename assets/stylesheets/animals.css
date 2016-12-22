@@ -34,12 +34,7 @@
 
 .downBut {
   right: 2vw;
-  top: 56vh;
-}
-
-.cubeBut {
-  right: 1vw;
-  top: 46vh;
+  bottom: 36vh;
 }
 
 
@@ -66,7 +61,7 @@
   position: fixed;
   z-index: 9999;
   right: 2vw;
-  top: 6vh;
+  top: 4vh;
   border: 3px solid ghostwhite;
   height: 70px;
   width: 140px;
@@ -103,12 +98,12 @@
 /* ANIMAL PAGES */
 
 .infoBut {
-  top: 43vh;
+  top: 42vh;
   left: 2vw;
 }
 
 .vidBut {
-  top: 53vh;
+  bottom: 41vh;
   left: 2vw;
 }
 
@@ -120,17 +115,17 @@
   background-position-x: center !important;
   height: 100%;
   width: 100%;
-  background: #55e6c5;
+  background: #black;
   z-index: 1;
   position: relative;
 }
 
-#parallaxPage {
+/*#parallaxPage {
   background: url("../parallax-master/examples/simple.html");
   height: 100vh;
   width: 100%;
   margin-left: 0;
-}
+}*/
 
 /*// ANIMAL PAGES*/
 
