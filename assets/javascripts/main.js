@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-    var moveImages = function () {
+  // CENTRE IMAGE
+
+    var centreImages = function () {
       var imgWidth = $(".layer:last img").width();
       var difference = window.innerWidth - imgWidth;
       var halfDifference = difference / 2;
@@ -8,9 +10,87 @@ $(document).ready(function() {
       $(".layer img").css("left", halfDifference + "px" );
     };
 
-    moveImages();
+    centreImages();
 
-    $(window).on("resize", moveImages);
+    $(window).on("resize", centreImages);
+
+    // MOVING
+    // SUN
+    var movingSun = function () {
+  $(".sun").css({
+    position: "absolute",
+    top: 0,
+    left: 0
+  });
+
+  var animateSun = function () {
+    $(".sun").animate({
+      top: "400px"
+    }, 10000, function () {
+      $(".sun").animate({
+        top: "0"
+      }, 10000, function () {
+        animateSun();
+      });
+    });
+  };
+
+  animateSun();
+};
+
+movingSun();
+
+  // MOON
+
+  var movingMoon = function () {
+$(".moon").css({
+  position: "absolute",
+  top: 0,
+  left: 0
+});
+
+var animateMoon = function () {
+  $(".moon").animate({
+    top: "400px"
+  }, 9050, function () {
+    $(".moon").animate({
+      top: "0"
+    }, 9050, function () {
+      animateMoon();
+    });
+  });
+};
+
+animateMoon();
+};
+
+movingMoon();
+
+  // ALL
+
+  // var movingAll = function () {
+// $(".move").css({
+//   position: "absolute",
+//   top: 0,
+//   left: 0
+// });
+
+// var animateAll = function () {
+//   $(".move").animate({
+//     top: "500px"
+//   }, 1000, function () {
+//     $(".move").animate({
+//       top: "0"
+//     }, 1000, function () {
+//       animateAll();
+//     });
+//   });
+// };
+//
+// animateAll();
+// };
+
+// movingAll();
 
 
     // COMMENTED THIS METHOD OUT TO FIX JITTERY SCROLL. MAY NEED IT THOUGH
