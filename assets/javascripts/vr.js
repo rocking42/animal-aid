@@ -79,6 +79,8 @@ $(document).ready(function() {
     // add event listner to the redirect links ( home page / jungle link / ocean link )
     $(".redirect").on("click", function(e) {
       exitEffect();
+
+      // var redirecting = window.setTimeout(redirect(event), 5000);
       var redirecting = window.setTimeout(redirect, 5000, e);
     });
 
