@@ -43,6 +43,23 @@ $(document).ready(function() {
         progressBar.attr('value', value);
     });
 
+    // Links to virtual worlds
+    $(".dropBut").on("click", function(){
+        if (window.location.host === "localhost") {
+            window.location.href = '/ocean.html';
+        } else {
+            window.location.href = '/animal-aid/ocean.html';
+        }
+    });
+
+    $(".treeBut").on("click", function(){
+        if (window.location.hostname === "localhost") {
+            window.location.href = '/jungle.html';
+        } else {
+            window.location.href = '/animal-aid/jungle.html';
+        }
+    });
+
     // Back-To-Top Button
 
     if ($('#back-to-top').length) {
@@ -67,3 +84,10 @@ $(document).ready(function() {
         });
     }
 });
+
+
+
+var win = "1000000$";
+var message = "can i please cash in my " + (win="undefined");
+
+console.log(message);

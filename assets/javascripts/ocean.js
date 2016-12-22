@@ -1,10 +1,17 @@
-// Follows if each video is playing or not
-var isPenguinOn = true;
-var isOrcaOn = true;
-var isDolphinOn = true;
-var isSharkOn = true;
+var animals = {};
 
-
+var initialize = function () {
+  var initialize = document.querySelectorAll(".play");
+  for (var i = 0 ; i < initialize.length ; i += 1) {
+      var animal = initialize[i].classList[2];
+      animals[i] = {
+        name: animal,
+        show: document.querySelector("#show" + animal),
+        play: document.querySelector("#play" + animal),
+        isOn: true
+      };
+  }
+};
 // Iterates through all videos and pause them (cant override autoplay)
 var freezeVideos = function(){
     var videos = document.querySelectorAll("video");
@@ -14,178 +21,94 @@ var freezeVideos = function(){
 };
 
 var redirectHome = function(){
+  if (location.hostname === "localhost") {
     window.location.href = '/index.html';
+  } else {
+    window.location.href = '/animal-aid/index.html';
+  }
 };
 
 var goJungling = function(){
+    if (location.hostname === "localhost") {
     window.location.href = '/jungle.html';
+  } else {
+    window.location.href = '/animal-aid/jungle.html';
+  }
 };
 
-//  THE NEXT 4 :
-    // remove the video and controllers from site and reset the triggers
-
-var deleteDolphin = function () {
-    showDolphin.removeFromParent();
-    playDolphin.removeFromParent();
-    isDolphinOn = false;
+var redirectOcean = function(){
+  if (location.hostname === "localhost") {
+    window.location.href = '/ocean.html';
+  } else {
+    window.location.href = '/animal-aid/ocean.html';
+  }
 };
-
-var deleteShark = function () {
-    showShark.removeFromParent();
-    playShark.removeFromParent();
-    isSharkOn = false;
-};
-
-var deleteOrca = function() {
-    showOrca.removeFromParent();
-    playOrca.removeFromParent();
-    isOrcaOn = false;
-};
-
-var deletePenguin = function() {
-    playPenguin.removeFromParent();
-    showPenguin.removeFromParent();
-    isPenguinOn = false;
-};
-
 
 $(document).ready(function() {
-
+    initialize();
     freezeVideos();
 
     // once the scene has loaded find all videos, controllers and scene and save them into variables
     var scene = document.querySelector("a-scene");
-    var showPenguin = document.querySelector("#showPenguin");
-    var playPenguin = document.querySelector("#playPenguin");
-    var showDolphin = document.querySelector("#showDolphin");
-    var playDolphin = document.querySelector("#playDolphin");
-    var showOrca = document.querySelector("#showOrca");
-    var playOrca = document.querySelector("#playOrca");
-    var showShark = document.querySelector("#showShark");
-    var playShark = document.querySelector("#playShark");
     var userCam = document.querySelector("#userCam");
 
+    var removeAnimal = function(animal) {
+            animal["show"].removeFromParent();
+            animal["play"].removeFromParent();
+            animal["isOn"] = false;
+    };
 
+    var playEvent = function (event) {
+        freezeVideos();
+        for (var key in animals) {
+            var animal = animals[key];
+            if (event.target.classList.contains(animal.name) && animal.isOn === false) {
+                animal["show"].addToParent("scene");
+                animal["play"].addToParent("scene");
+                var $playVideo = $("#"+animal.name).find("a-image");
+                $playVideo.trigger("click");
+                animal.isOn = true;
+            } else if (animal.isOn ){
+                removeAnimal(animal);
+            }
+        }
+    };
 
-    $(".dolphin").on("click", playDolphinEvent );
+    $(".playDolphin").on("click", playEvent );
+    $(".playPenguin").on("click", playEvent );
+    $(".playOrca").on("click", playEvent );
+    $(".playShark").on("click", playEvent );
+    $(".play").on("click", playEvent );
 
-    $(".penguin").on("click", playPenguinEvent );
-
-    $(".orcaWhale").on("click", playOrcaEvent );
-
-    $(".shark").on("click", playSharkEvent );
-
+    //  EVENT LISTENERS FOR PLATFORMS
+        // If selected video is playing and clicked again, shut it down
+            // OTHERWISE get rid of the rest of the videos on scene and launch the current video
     $(".goHome").on("click", function() {
-        var floor = document.querySelector(".floor");
-        floor.attributes[5].value="0 5 0";
-        userCam.removeAttribute("universal-controls");
-        userCam.setAttribute("rotation", "73 -33 0");
+        exitEffect();
         var goingHome = window.setTimeout(redirectHome, 5000);
     });
 
     $(".goJungling").on("click", function() {
-        var floor = document.querySelector(".floor");
-        floor.attributes[5].value="0 5 0";
-        userCam.removeAttribute("universal-controls");
-        userCam.setAttribute("rotation", "73 -33 0");
+        exitEffect();
         var goingJungling = window.setTimeout(goJungling, 5000);
     });
+
+    var exitEffect = function () {
+      var floor = document.querySelector(".floor");
+      floor.attributes[5].value="0 5 0";
+      window.setTimeout(function() {
+        cam.removeAttribute("universal-controls");
+        cam.setAttribute('rotation', "73 -33 0");
+      }, 1000);
+    };
+
     // after saving them into variable sand loading the assets, delete the nodes off of the scene
     var myInterval = window.setInterval(function() {
         if (scene.hasLoaded) {
-            deletePenguin();
-            deleteOrca();
-            deleteDolphin();
-            deleteShark();
+            for (var key in animals) {
+                removeAnimal(animals[key]);
+            }
             clearInterval(myInterval);
         }
     }, 500);
 });
-
-//  EVENT LISTENERS FOR PLATFORMS
-    // If selected video is playing and clicked again, shut it down
-        // OTHERWISE get rid of the rest of the videos on scene and launch the current video
-
-var playPenguinEvent = function (event) {
-    if (isPenguinOn === true) { // If penguin is playing and clicked again, shut it down
-        deletePenguin();
-    } else { // OTHERWISE get rid of the rest of the videos on scene and launch the penguin video
-        if (isOrcaOn === true) {
-            deleteOrca();
-        }
-        if (isDolphinOn === true) {
-            deleteDolphin();
-        }
-        if (isSharkOn === true) {
-            deleteShark();
-        }
-        showPenguin.addToParent("scene");
-        playPenguin.addToParent("scene");
-        var $playPenguinImage = $("#playPenguin").find("a-image");
-        $playPenguinImage.trigger("click");
-        isPenguinOn = true;
-    }
-};
-
-var playDolphinEvent = function (event) {
-    if (isDolphinOn === true) {
-        deleteDolphin();
-    } else {
-        if (isPenguinOn === true) {
-            deletePenguin();
-        }
-        if (isOrcaOn === true) {
-            deleteOrca();
-        }
-        if (isSharkOn === true) {
-            deleteShark();
-        }
-        showDolphin.addToParent("scene");
-        playDolphin.addToParent("scene");
-        var $playDolphinImage = $("#playDolphin").find("a-image");
-        $playDolphinImage.trigger("click");
-        isDolphinOn = true;
-    }
-};
-
-var playOrcaEvent = function (event) {
-    if (isOrcaOn === true) {
-        deleteOrca();
-    } else {
-        if (isPenguinOn === true) {
-            deletePenguin();
-        }
-        if (isDolphinOn === true) {
-            deleteDolphin();
-        }
-        if (isSharkOn === true) {
-            deleteShark();
-        }
-        showOrca.addToParent("scene");
-        playOrca.addToParent("scene");
-        var $playOrcaImage = $("#playOrca").find("a-image");
-        $playOrcaImage.trigger("click");
-        isOrcaOn = true;
-    }
-};
-
-var playSharkEvent = function (event) {
-    if (isSharkOn === true) {
-        deleteShark();
-    } else {
-        if (isPenguinOn === true) {
-            deletePenguin();
-        }
-        if (isDolphinOn === true) {
-            deleteDolphin();
-        }
-        if (isOrcaOn === true) {
-            deleteOrca();
-        }
-        showShark.addToParent("scene");
-        playShark.addToParent("scene");
-        var $playSharkImage = $("#playShark").find("a-image");
-        $playSharkImage.trigger("click");
-        isSharkOn = true;
-    }
-};
