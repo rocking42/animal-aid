@@ -65,11 +65,11 @@ From the home page the user can enter the VR world with either of the leaf or wa
 
 ## Contact
 
-** Ned **
+Ned
 - nedpike3@gmail.com
 
-** Ahi **
+Ahi
 - ahishahar1987@gmail.com
 
-** Drew **
+Drew
 - dgjdavidson@hotmail.com
