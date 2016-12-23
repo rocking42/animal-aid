@@ -8,6 +8,8 @@ var initialize = function () {
         name: animal,
         show: document.querySelector("#show" + animal),
         play: document.querySelector("#play" + animal),
+        read: document.querySelector("#read" + animal),
+        title: document.querySelector("#title" + animal),
         isOn: true
       };
   }
@@ -52,6 +54,8 @@ $(document).ready(function() {
     var removeAnimal = function(animal) {
             animal["show"].removeFromParent();
             animal["play"].removeFromParent();
+            animal["read"].removeFromParent();
+            animal["title"].removeFromParent();
             animal["isOn"] = false;
     };
 
@@ -63,6 +67,8 @@ $(document).ready(function() {
             if (event.target.classList.contains(animal.name) && animal.isOn === false) { // if the animal's cylinder is the one used to trigger, and it isnt already playing, turn it on
                 animal["show"].addToParent("scene");
                 animal["play"].addToParent("scene");
+                animal["read"].addToParent("scene");
+                animal["title"].addToParent("scene");
                 var $playVideo = $("#play"+animal["name"]).find("a-image"); // find the controller's 'play' button and:
                 $playVideo.trigger("click"); // trigger a click event on it
                 animal["isOn"] = true;

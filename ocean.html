@@ -10,10 +10,8 @@
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.1.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
     <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
-
     <script src="https://github.com/ngokevin/aframe-physics-components/blob/master/dist/aframe-physics-components.min.js"></script>
     <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
-    <!-- <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script> -->
     <script src="assets/javascripts/aframe-video-controls.js"></script>
     <!-- <script src="assets/javascripts/ocean.js"></script> -->
     <script src="assets/javascripts/vr.js"></script>
@@ -64,18 +62,14 @@
             <img src="assets/images/icons/orca.jpg" id="whaleIcon">
         </a-assets>
 
-
+        <!-- USER CAMERA -->
         <a-camera id="userCam" camera="userHeight: 1.6" position="0 10 0" kinematic-body checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
             <a-entity cursor position="0 0 -1" raycaster="objects: .clickable" scale="0.02 0.02 0.02" geometry="primitive: ring" material="color: ghostwhite; shader: flat"></a-entity>
         </a-camera>
 
-
-
         <!-- SHARK -->
-
         <a-entity position="-5 2 -8" scale="0.7 0.7 0.7" obj-model="obj: #shark-obj; mtl: #shark-mtl" rotation="-90 90 0" alongpath="path:
             100,-1.5,-10 95,-1.5,10 90,-1.5,-8 80,-1.5,7 70,-1.5,-7 60,-1.5,-6 50,-1.5,6 40,-1.5,-10 30,-1.5,-10 20,-1.5,-10 10,-3,-14 5,2,-16 -5,5.5,-17 -15,2,-16 -20,-1.6,-15 -30,-1.6,-8 -40,-1.6,-10 -50,-1.6,-10 -60,-1.6,-10 -70,-1.6,-10 -80,-1.6,-10 -90,-1.6,-10 -100,0,-4; closed:false; dur:20000; delay:0.1; inspector:false; loop:true;"></a-entity>
-
 
         <!-- ORCAs -->
         <a-entity position="-15 -6.5 0">
@@ -88,7 +82,6 @@
             </a-entity>
         </a-entity>
 
-        <!-- <a-box opacity="0" position="-2 0 -8" class="clickable orcaWhale" width="1.6" height="1.6" depth="1.6"></a-box> -->
         <a-entity position="-10 1 0">
             <a-entity collada-model="#whale" position="5 -3 -10">
                 <a-animation attribute="rotation" dur="8000" from="10 0 -75" to="0 0 -135" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
@@ -111,7 +104,6 @@
         <a-entity collada-model="#penguin" position="-6 3.80 -17">
             <a-animation attribute="rotation" dur="170" from="0 0 -2" to="0 0 2" direction="alternate" easing="ease" repeat="indefinite"></a-animation>
         </a-entity>
-
 
         <!-- DOLPHINS -->
         <a-entity alongpath="path:0,-2,-100 0,0,100 ; closed:false; dur:30000; delay:3000; inspector:false; loop:true;">
@@ -146,19 +138,39 @@
             </a-entity>
         </a-entity>
 
-
         <!-- OCEAN LAYERS -->
         <a-box class="floor" width="161" depth="161" opacity="0.05" static-body position="0 -0.4 0" color="1049759.00"></a-box>
         <a-ocean width="161" depth="161" density="110" opacity="0.85" position="0 0.2 0" color="1049759.00"></a-ocean>
         <a-ocean width="161" depth="161" density="11" opacity="1" position="0 -1 0" color="1049759.00"></a-ocean>
 
-
         <!-- MOON -->
         <a-sphere src="#moon" radius="8" position="70 30 -10"></a-sphere>
         <a-sky src="#background"></a-sky>
 
-        <!-- Video -->
+        <!-- TEXT DESCRIPTION -->
+        <a-entity id="readPenguin" scale="3 3 0" position="-25 1.5 -17" rotation="30 40 0" bmfont-text="color: white; lineHeight: 50; text: Commercial fishing in the Southern Ocean region can force many penguin species to compete for the fish they eat. The practice can also lead to accidental capture and drowning in fishing nets. Climate change is a growing concern for penguins that live in Antarctica—the emperor penguin and the Adelie penguin. These species depend on sea ice for access to food and for places to breed. But the sea ice has been disappearing, and penguin populations along with it. ;">
+        </a-entity>
+        <a-entity id="titlePenguin" scale="8 8 0" position="-23 10 -17" rotation="30 40 0" bmfont-text="color: white; text: Emperor Penguin;">
+        </a-entity>
 
+        <a-entity id="readOrca" scale="3 3 0" position="-8 1 15" rotation="30 150 0" bmfont-text="color: white; lineHeight: 50; text: Orcas are well known for their mental capabilities. Studies have indicated that an Orca has an outstanding memory, perhaps even photographic. In tests conducted with Orcas in captivity, they recalled testing patterns up to 25 years after they were initially conducted. Orcas were targeted in commercial whaling during the middle part of the 20th century once stocks of larger species had been depleted. Although Orcas are not an endangered species, some local populations are considered threatened or endangered due to pollution, depletion of prey species, conflicts with fishing activities and vessels, habitat loss, and whaling. ;">
+        </a-entity>
+        <a-entity id="titleOrca" scale="8 8 0" position="-6 12 13" rotation="30 150 0" bmfont-text="color: white; text: Orca (Killer Shark);">
+        </a-entity>
+
+        <a-entity id="readDolphin" scale="3 3 0" position="12.4 1 -18.5" rotation="30 -50 0" bmfont-text="color: white; lineHeight: 50; text: The Bottlenose Dolphin (Tursiops truncatus) is the most common species of dolphin, inhabiting warm and temperate seas worldwide. The world dolphin is adapted from the word delphis, which means 'a fish with a womb'. According to an international group of experts at IUCN - The World Conservation Union, some species of dolphins are so endangered they could vanish within a decade. The species on the brink include river dolphins like the Ganges River dolphin and Indus River dolphin. They face some of the most severe risks and are unlikely to survive unless we work effectively to save and conserve their environments. ;">
+        </a-entity>
+        <a-entity id="titleDolphin" scale="6 6 0" position="10.4 10.5 -16.5" rotation="30 -50 0" bmfont-text="color: white; text: Bottlenose Dolphin;">
+        </a-entity>
+
+        <a-entity id="readShark" scale="3 3 0" position="9.4 1 -18.5" rotation="30 -50 0" bmfont-text="color: white; lineHeight: 50; text: Great white sharks are decreasing in numbers and are rare due to years of being hunted by man for fins and teeth, and often as a trophy for sport fishing. The white shark is often caught as bycatch by commercial fisheries and can also become entangled in meshes that protect beaches. It is estimated that 100 million sharks are killed by people every year, due to commercial and recreational fishing. Shark finning yields are estimated at 1.44 million metric tons for 2000, and 1.41 million tons for 2010. Based on an analysis of average shark weights, this translates into a total annual mortality estimate of about 100 million sharks in 2000, and about 97 million sharks in 2010, with a total range of possible values between 63 and 273 million sharks per year. In 1991, South Africa was the first country in the world to declare Great White sharks a legally protected species. ;">
+        </a-entity>
+        <a-entity id="titleShark" scale="8 8 0" position="7.4 16.5 -16.5" rotation="30 -50 0" bmfont-text="color: white; text: Great White Shark;">
+        </a-entity>
+
+
+
+        <!-- Videos -->
         <a-entity id="playPenguin" scale="3 3 1" position="-7.8 2 -20">
             <a-entity video-controls="src:#penguin-video" class="clickable"></a-entity>
         </a-entity>
@@ -168,7 +180,6 @@
             <a-entity video-controls="src:#dolphin-video" class="clickable"></a-entity>
         </a-entity>
         <a-video id="showDolphin" scale="6 4 1" class="clickable" autoplay="false" src="#dolphin-video" position="3.4 4 -14.5"></a-video>
-
 
         <a-entity id="playOrca" scale="7 2 -3" position="-10 0.65 -5" rotation="0 90 0">
             <a-entity video-controls="src:#whale-video" class="clickable"></a-entity>
