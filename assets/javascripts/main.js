@@ -1,4 +1,8 @@
+// JSON
+
 var locURL = "https://animal-data.herokuapp.com/animals.json";
+
+// MODAL INFO
 
 function modalDisplay(res) {
     var template = $("#modal1").html();
@@ -12,6 +16,8 @@ function modalDisplay(res) {
 
 }
 
+// MODAL VIDEO
+
 function modalVidDisplay(res) {
     var template = $("#modal2").html();
     var result = _.template(template);
@@ -20,6 +26,8 @@ function modalVidDisplay(res) {
     });
     $(".detailModal").html(result);
 }
+
+// DISPLAY MODAL INFO
 
 function displayAnimal(data, b, c, query) {
     var res = data.find(function(animal) {
@@ -39,6 +47,8 @@ function displayAnimal(data, b, c, query) {
     };
 }
 
+// DISPLAY MODAL VIDEO
+
 function displayAnimalVid(data, b, c, query) {
     var res = data.find(function(animal) {
         return animal.name === query;
@@ -54,6 +64,8 @@ function displayAnimalVid(data, b, c, query) {
         }
     };
 }
+
+// MODAL AJAX REQUEST
 
 var dataFun;
 var findAnimal = function(query, dataCont) {
@@ -78,7 +90,7 @@ var findAnimal = function(query, dataCont) {
 
 $(document).ready(function() {
 
-    // CENTRE IMAGE
+    // CENTRE PARALLAX IMAGE
 
     var centreImages = function() {
         var imgWidth = $(".layer:last img").width();
@@ -94,64 +106,66 @@ $(document).ready(function() {
 
     // MOVING SUN
 
-    var movingSun = function() {
-        $(".sun").css({
-            position: "absolute",
-            top: 0,
-            left: 0
-        });
-
-        var animateSun = function() {
-            $(".sun").animate({
-                top: "400px"
-            }, 10000, function() {
-                $(".sun").animate({
-                    top: "0"
-                }, 10000, function() {
-                    animateSun();
-                });
-            });
-        };
-
-        animateSun();
-    };
-
-    movingSun();
+    // var movingSun = function() {
+    //     $(".sun").css({
+    //         position: "absolute",
+    //         top: 0,
+    //         left: 0
+    //     });
+    //
+    //     var animateSun = function() {
+    //         $(".sun").animate({
+    //             top: "400px"
+    //         }, 10000, function() {
+    //             $(".sun").animate({
+    //                 top: "0"
+    //             }, 10000, function() {
+    //                 animateSun();
+    //             });
+    //         });
+    //     };
+    //
+    //     animateSun();
+    // };
+    //
+    // movingSun();
 
     // MOVING MOON
 
-    var movingMoon = function() {
-        $(".moon").css({
-            position: "absolute",
-            top: 400,
-            left: 0
-        });
+    // var movingMoon = function() {
+    //     $(".moon").css({
+    //         position: "absolute",
+    //         top: 400,
+    //         left: 0
+    //     });
+    //
+    //     var animateMoon = function() {
+    //         $(".moon").animate({
+    //             top: "0"
+    //         }, 10000, function() {
+    //             $(".moon").animate({
+    //                 top: "400px"
+    //             }, 10000, function() {
+    //                 animateMoon();
+    //             });
+    //         });
+    //     };
+    //
+    //     animateMoon();
+    // };
+    //
+    // movingMoon();
 
-        var animateMoon = function() {
-            $(".moon").animate({
-                top: "0"
-            }, 10000, function() {
-                $(".moon").animate({
-                    top: "400px"
-                }, 10000, function() {
-                    animateMoon();
-                });
-            });
-        };
 
-        animateMoon();
-    };
+    // STELLAR SCROLL
 
-    movingMoon();
-
-
-    // Stellar Scroll
     $(window).stellar({
         horizontalScrolling: false
     });
 
 
-    // Parallax Scroll
+    // PARALLAX SCROLL
+
     $("html").niceScroll({
         cursorcolor: "rgba(30,30,30,.5)",
         zindex: 999,
@@ -160,7 +174,7 @@ $(document).ready(function() {
         cursorborder: "0px solid #fff",
     });
 
-    // Progress Bar
+    // PROGRESS BAR
     var winHeight = $(window).height(),
         docHeight = $(document).height(),
         progressBar = $('progress'),
@@ -174,6 +188,8 @@ $(document).ready(function() {
         value = $(window).scrollTop();
         progressBar.attr('value', value);
     });
+
+    // BUTTONS
 
     $(".infoBut").on("click", function() {
         var change = this.getAttribute("data-type");
@@ -189,20 +205,20 @@ $(document).ready(function() {
 
     // Links to virtual worlds
     $(".dropBut").on("click", function() {
-    if (window.location.host === "localhost") {
-        window.location.href = '/ocean.html';
-    } else {
-        window.location.href = '/animal-aid/ocean.html';
-    }
-});
+        if (window.location.host === "localhost") {
+            window.location.href = '/ocean.html';
+        } else {
+            window.location.href = '/animal-aid/ocean.html';
+        }
+    });
 
-$(".treeBut").on("click", function() {
-    if (window.location.hostname === "localhost") {
-        window.location.href = '/jungle.html';
-    } else {
-        window.location.href = '/animal-aid/jungle.html';
-    }
-});
+    $(".treeBut").on("click", function() {
+        if (window.location.hostname === "localhost") {
+            window.location.href = '/jungle.html';
+        } else {
+            window.location.href = '/animal-aid/jungle.html';
+        }
+    });
 
 
     $(".scrollIndex").on("click", function(e) {
@@ -220,8 +236,7 @@ $(".treeBut").on("click", function() {
     });
 
 
-    // Back-To-Top Button
-
+    // BACK-TO-TOP-BUTTON
 
     if ($('#back-to-top').length) {
         var scrollTrigger = 100, // px
@@ -246,7 +261,7 @@ $(".treeBut").on("click", function() {
     }
 });
 
-
+// RANDOM CONSOLE LOG MESSAGE
 
 var win = "1000000$";
 var message = "can i please cash in my " + (win = "undefined");

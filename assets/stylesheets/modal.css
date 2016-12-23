@@ -1,4 +1,5 @@
-/* The Modal (background) */
+/* THE MODAL (background) */
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -12,22 +13,15 @@
     z-index: 99999999999;
 }
 
-/*.modelVideo {
-    width: ;
-}*/
-/* Modal Content/Box */
+/* MODAL INFO CONTENT/BOX */
+
 .modal-content {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     width: 80%; /* Could be more or less, depending on screen size */
     background-color: rgba(255,255,255,0.6); /* white w/ opacity */
-    /*border-radius: 5px;*/
     z-index: 99999999999;
-    /*-webkit-box-shadow: 5px 3px 8px 15px rgba(255,255,255,0.6);
-    -moz-box-shadow:    5px 3px 8px 15px rgba(255,255,255,0.6);
-    box-shadow:         5px 3px 8px 15px rgba(255,255,255,0.6);*/
     text-align: center;
-  /* box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]; */
 }
 
 .modal-content p {
@@ -37,35 +31,17 @@
 
 .modal-content h3 {
     font-family: 'Passion One', cursive;
-    /*text-shadow: 1px 2px 4px rgba(0,0,0,0.8);*/
     font-size: 50px;
     margin: 0;
 }
 
-/* Modal Content/Box */
+/* VIDEO MODAL CONTENT/BOX */
+
 .modalVideo {
     margin: 2.5% auto;
     width: 80vw; /* Could be more or less, depending on screen size */
     height: 80vh;
     border-radius: 5px;
     z-index: 99999999999;
-    /*-webkit-box-shadow: 5px 3px 8px 15px rgba(0,0,0,0.6);
-    -moz-box-shadow:    5px 3px 8px 15px rgba(0,0,0,0.6);
-    box-shadow:         5px 3px 8px 15px rgba(0,0,0,0.6);*/
     text-align: center;
-}
-
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
 }
