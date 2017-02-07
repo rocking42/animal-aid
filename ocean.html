@@ -40,15 +40,15 @@
             <!-- VIDEOS -->
             <video id="whale-video" controls="false" loop="false" src="assets/videos/orca.mp4"></video>
             <video id="penguin-video" controls="false" loop="false" src="assets/videos/emperor_penguins.mp4"></video>
-            <video id="shark-video" controls="false" loop="false" src="assets/videos/greatwhite.mp4"></video>
+            <!-- <video id="shark-video" controls="false" loop="false" src="assets/videos/greatwhite.mp4"></video> -->
             <video id="dolphin-video" controls="false" loop="false" src="assets/videos/dolphins.mp4"></video>
             <!-- SKINS -->
             <img src="assets/images/nightsky.jpg" id="background">
             <img src="assets/images/aa_ocean.jpg" id="ocean">
             <img src="assets/images/moonskin.png" id="moon">
             <!-- MODELS -->
-            <a-asset-item id="shark-obj" src="assets/shark.obj"></a-asset-item>
-            <a-asset-item id="shark-mtl" src="assets/shark.mtl"></a-asset-item>
+            <!-- <a-asset-item id="shark-obj" src="assets/shark.obj"></a-asset-item>
+            <a-asset-item id="shark-mtl" src="assets/shark.mtl"></a-asset-item> -->
             <a-asset-item id="whale" src="assets/images/orca.dae"></a-asset-item>
             <a-asset-item id="dolphin" src="assets/images/dolphin.dae"></a-asset-item>
             <a-asset-item id="penguin" src="assets/images/penguin.dae"></a-asset-item>
@@ -56,20 +56,22 @@
             <!-- ICONS -->
             <img src="assets/images/icons/homeImage.jpg" id="homeIcon">
             <img src="assets/images/icons/jungle.png" id="jungleIcon">
-            <img src="assets/images/icons/shark.jpg" id="sharkIcon">
+            <!-- <img src="assets/images/icons/shark.jpg" id="sharkIcon"> -->
             <img src="assets/images/icons/dolphin.ico" id="DolphinIcon">
             <img src="assets/images/icons/penguin.png" id="penguinIcon">
             <img src="assets/images/icons/orca.jpg" id="whaleIcon">
         </a-assets>
 
         <!-- USER CAMERA -->
-        <a-camera id="userCam" camera="userHeight: 1.6" position="0 10 0" kinematic-body checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
+        <a-camera id="userCam" camera="userHeight: 1.6" kinematic-body checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint" position="0 10 0">
+            <!-- <a-animation position start="0 10 0" to="0 0 0" duration="5000"></a-animation> -->
             <a-entity cursor position="0 0 -1" raycaster="objects: .clickable" scale="0.02 0.02 0.02" geometry="primitive: ring" material="color: ghostwhite; shader: flat"></a-entity>
+
         </a-camera>
 
         <!-- SHARK -->
-        <a-entity position="-5 2 -8" scale="0.7 0.7 0.7" obj-model="obj: #shark-obj; mtl: #shark-mtl" rotation="-90 90 0" alongpath="path:
-            100,-1.5,-10 95,-1.5,10 90,-1.5,-8 80,-1.5,7 70,-1.5,-7 60,-1.5,-6 50,-1.5,6 40,-1.5,-10 30,-1.5,-10 20,-1.5,-10 10,-3,-14 5,2,-16 -5,5.5,-17 -15,2,-16 -20,-1.6,-15 -30,-1.6,-8 -40,-1.6,-10 -50,-1.6,-10 -60,-1.6,-10 -70,-1.6,-10 -80,-1.6,-10 -90,-1.6,-10 -100,0,-4; closed:false; dur:20000; delay:0.1; inspector:false; loop:true;"></a-entity>
+        <!-- <a-entity position="-5 2 -8" scale="0.7 0.7 0.7" obj-model="obj: #shark-obj; mtl: #shark-mtl" rotation="-90 90 0" alongpath="path:
+            100,-1.5,-10 95,-1.5,10 90,-1.5,-8 80,-1.5,7 70,-1.5,-7 60,-1.5,-6 50,-1.5,6 40,-1.5,-10 30,-1.5,-10 20,-1.5,-10 10,-3,-14 5,2,-16 -5,5.5,-17 -15,2,-16 -20,-1.6,-15 -30,-1.6,-8 -40,-1.6,-10 -50,-1.6,-10 -60,-1.6,-10 -70,-1.6,-10 -80,-1.6,-10 -90,-1.6,-10 -100,0,-4; closed:false; dur:20000; delay:0.1; inspector:false; loop:true;"></a-entity> -->
 
         <!-- ORCAs -->
         <a-entity position="-15 -6.5 0">
@@ -163,10 +165,10 @@
         <a-entity id="titleDolphin" scale="6 6 0" position="13.27 11.8 -14.4" rotation="30 -50 0" bmfont-text="color: white; text: Bottlenose Dolphin;">
         </a-entity>
 
-        <a-entity id="readShark" scale="3 3 0" position="9.4 1.83 -18.5" rotation="30 -50 0" bmfont-text="color: white; lineHeight: 50; text: Great white sharks are decreasing in numbers and are rare due to years of being hunted by man for fins and teeth, and often as a trophy for sport fishing. The white shark is often caught as bycatch by commercial fisheries and can also become entangled in meshes that protect beaches. It is estimated that 100 million sharks are killed by people every year, due to commercial and recreational fishing. Shark finning yields are estimated at 1.44 million metric tons for 2000, and 1.41 million tons for 2010. Based on an analysis of average shark weights, this translates into a total annual mortality estimate of about 100 million sharks in 2000, and about 97 million sharks in 2010, with a total range of possible values between 63 and 273 million sharks per year. In 1991, South Africa was the first country in the world to declare Great White sharks a legally protected species. ;">
+        <!-- <a-entity id="readShark" scale="3 3 0" position="9.4 1.83 -18.5" rotation="30 -50 0" bmfont-text="color: white; lineHeight: 50; text: Great white sharks are decreasing in numbers and are rare due to years of being hunted by man for fins and teeth, and often as a trophy for sport fishing. The white shark is often caught as bycatch by commercial fisheries and can also become entangled in meshes that protect beaches. It is estimated that 100 million sharks are killed by people every year, due to commercial and recreational fishing. Shark finning yields are estimated at 1.44 million metric tons for 2000, and 1.41 million tons for 2010. Based on an analysis of average shark weights, this translates into a total annual mortality estimate of about 100 million sharks in 2000, and about 97 million sharks in 2010, with a total range of possible values between 63 and 273 million sharks per year. In 1991, South Africa was the first country in the world to declare Great White sharks a legally protected species. ;">
         </a-entity>
         <a-entity id="titleShark" scale="8 8 0" position="7.4 18.23 -16.5" rotation="30 -50 0" bmfont-text="color: white; text: Great White Shark;">
-        </a-entity>
+        </a-entity> -->
 
 
 
@@ -186,16 +188,16 @@
         </a-entity>
         <a-video id="showOrca" scale="17.74 9.03 -3" class="clickable" autoplay="false" src="#whale-video" position="-14 6 -10" rotation="30 90 0"></a-video>
 
-        <a-entity id="playShark" scale="2 2 1" position="2 3 -20" rotation="30 0 0">
+        <!-- <a-entity id="playShark" scale="2 2 1" position="2 3 -20" rotation="30 0 0">
             <a-entity video-controls="src:#shark-video" class="clickable"></a-entity>
-        </a-entity>
-        <a-video id="showShark" scale="20 14 1" class="clickable" autoplay="false" src="#shark-video" position="0 14 -20" rotation="35 0 0"></a-video>
+        </a-entity> -->
+        <!-- <a-video id="showShark" scale="20 14 1" class="clickable" autoplay="false" src="#shark-video" position="0 14 -20" rotation="35 0 0"></a-video> -->
 
         <!-- CHECKPOINT -->
         <a-cylinder src="#whaleIcon" class="clickable play Orca" checkpoint radius="1" height="1" position="-9 0 -7"></a-cylinder>
         <a-cylinder src="#dolphinIcon" class="clickable play Dolphin" checkpoint radius="1" height="1" position="3.4 0 -8.5"></a-cylinder>
         <a-cylinder src="#penguinIcon" class="clickable play Penguin" checkpoint radius="1" height="1" position="-8 0 -12"></a-cylinder>
-        <a-cylinder src="#sharkIcon" class="clickable play Shark" checkpoint radius="1" height="1" position="-4 0 -6"></a-cylinder>
+        <!-- <a-cylinder src="#sharkIcon" class="clickable play Shark" checkpoint radius="1" height="1" position="-4 0 -6"></a-cylinder> -->
 
         <!-- Go Home -->
         <a-cylinder src="#homeIcon" class="clickable redirect" data-type="index" checkpoint radius="1" height="1" position="8 0 1"></a-cylinder>

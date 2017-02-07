@@ -60,7 +60,7 @@
         <img src="assets/images/icons/gorillaIcon.png" id="gorillaIcon">
       </a-assets>
       <!-- CONTROLS -->
-      <a-camera id="userCam" position="0 15.6 0" kinematic-body checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
+      <a-camera id="userCam" position="0 10 0" kinematic-body checkpoint-controls="mode: animate" universal-controls="movementControls: checkpoint">
         <a-entity id="cursor" cursor
             position="0 0 -1"
             raycaster="objects: .clickable"
@@ -73,8 +73,9 @@
       <a-sky src="#rainforest" rotation="0 -130 0"></a-sky>
       <!-- TERRAIN -->
       <!-- FLOOR -->
-      <a-ocean class="ground" width="161" depth="161" density="110" opacity="1" position="0 0.2 0" color="0099399.00"></a-ocean>
+      <a-ocean class="ground" width="161" depth="161" density="110" static-body opacity="1" position="0 0.2 0" color="0099399.00"></a-ocean>
       <a-box class="floor" width="161" depth="161" opacity="0.05" static-body position="0 -0.4 0" color="1049759.00"></a-box>
+
       <!-- TREES -->
       <a-entity collada-model="#tree" scale="1 1 1" position="-14.40 0 -2.17" ></a-entity>
       <a-entity collada-model="#tree" scale="1 1 1" position="13.63 0 15.64" ></a-entity>
